@@ -25,6 +25,19 @@ app.get('/cheflavor', (req, res) => {
     res.render('./index.ejs')
 })
 
+app.get('/cheflavor/contactus', (req, res) => {
+    res.render('./contactus.ejs')
+})
+
+app.get('/cheflavor/menu', (req, res) => {
+    res.render('./menu.ejs')
+})
+
+app.get('/cheflavor/events', (req, res) => {
+    res.render('./cheFlavorEvents.ejs')
+})
+
+
 app.listen(3000, () => {
     console.log(`listening on : ${port}`)
 })
