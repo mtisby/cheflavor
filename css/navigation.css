@@ -1,0 +1,36 @@
+.liStyles {
+    list-style-type: none;
+    text-decoration: none;
+    text-align: right;
+    display: inline;
+}
+
+.logoImg{
+    display: inline-block;
+    width: 5em;
+    margin: 1em;
+}
+
+.text-decoration{
+    font-family: var(--fontThree);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--orange);
+    text-decoration: none;
+    font-style: none;
+    margin: 0 1em;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: .25em;
+}
+
+.nestedDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

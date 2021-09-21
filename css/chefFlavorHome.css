@@ -1,0 +1,651 @@
+/* for all pages */
+html{
+    /* fonts */
+    --fontOne: 'Barlow', sans-serif;
+    --fontTwo: 'Fira Sans', sans-serif;
+    --fontThree: 'Lato', sans-serif;
+    --fontFour: 'Poppins', sans-serif;
+
+    /* color scheme */
+    --burgundy: #4C130C;
+    --neutral: #f5e6cc;
+    --offWhite: #F9F9F9;
+    --darkRed: #74251b;
+    --burntOrange: #A03123;
+    --orange: #b66727;
+    --mustardOrange: #DBB043;
+    --hoverColor: rgba(237, 174, 78, .75);
+    --buttonColor: #dd9e37;
+
+    /* images to use */
+    --homepgBanner: url(../images/homebg2.jpg);
+}
+
+body{
+    margin: 0;
+}
+
+/* navbar */
+.logo{
+    height: 4em;
+}
+
+.nav-item{
+    padding-top: 2em;
+}
+
+.navbar{
+    font-family: var(--fontThree);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+/* footer */
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 2em 1em;
+    background-color: var(--burgundy);
+    color: var(--burntOrange);
+    font-family: var(--fontThree);
+}
+
+footer iframe{
+    width: 25em;
+    height: 18em;
+}
+
+footer h1{
+    font-size: 1.5em;
+    font-family: var(--fontFour);
+}
+
+footer p{
+    font-size: 1em;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+.hours, .contactUs, .socials{
+    padding-top: 1.5em;
+}
+
+.hours p{
+    text-transform: lowercase;
+    text-transform: capitalize
+}
+
+/* 
+
+home page css
+
+*/
+
+/* banner */
+.banner{
+    background-image: var(--homepgBanner);
+    background-repeat: no-repeat;
+    background-position: 50% 18%;
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner button{
+    color: white;
+    background-color: var(--burgundy);
+    border: 2px solid var(--burgundy);
+    border-radius: 25em;
+
+    margin: 2.5em;
+    margin-bottom: 0;
+
+    width: 10em;
+    height: 2em;
+
+    font-weight: 500;
+}
+
+.banner img{
+    height: 7.5em;
+}
+
+
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: space-evenly;
+    
+    font-size: 1.5em;
+    padding: 0 2em;
+}
+
+/*about*/
+.aboutUs{
+    margin-top: .5em;
+    text-align: center;
+    font-family: var(--fontFour);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutUs h2{
+    font-size: 4em;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--orange);
+    margin: .5em 0;
+}
+
+.rowSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    padding: 1em 0;
+    margin: 1em 2em;
+    z-index: 1;
+    background-color: var(--mustardOrange);
+    margin-right: 55em;
+    margin-bottom: 7em;
+}
+
+.rowSection .text{
+    text-align: center;
+    margin: auto 1.5em;
+    min-width: 25em;
+    max-width: 25em;
+    z-index: 3;
+    font-size: 1.5em;
+    font-family: var(--fontThree);
+}
+
+.rowSection p{
+    min-width: 25em;
+    max-width: 25em;
+}
+
+.image{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 2em;
+}
+
+.image img{
+    margin: 2em;
+    z-index: 3;
+    position: relative;
+    top: .5em;
+    left: .5em;
+} 
+
+.imageCarousel{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5em;
+}
+
+.imageRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 7.5em 0 ;
+    margin-left: 50em;
+    padding: 4.5em;
+    background-color: var(--mustardOrange);
+    z-index: 1;
+}
+
+.imageRight img{
+    width: 50em;
+}
+
+/* images */
+.square{
+    width: 25em;
+    height: 25em;
+    object-fit: fill;
+}
+
+.squareLarge{
+    width: 30em;
+    height: 30em;
+    object-fit: fill;
+}
+
+/*
+
+events page
+
+*/
+
+/*banner option 2 for subpages*/
+.banner2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner2 h1{
+    font-size: 4.5em;
+    font-weight: bold;
+    font-family: var(--fontThree);
+    margin-top: .5em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/*
+
+contact us page
+
+*/
+.contactUsPage{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    margin-bottom: 5em;
+    padding: 2em;
+    padding-bottom: 1em;
+    max-width: 75vw;
+
+    border: .5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 1.5em;
+    background-color: var(--offWhite);
+}
+
+.contactInfo iframe{
+    max-width: 15em;
+    max-height: 10em;
+}
+
+.feedbackDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    margin: 0 2em;
+    font-size: 1.25em;
+}
+
+.feedbackDiv label{
+    font-size: 1.25em;
+    font-family: var(--fontThree);
+}
+
+.customerFeedback{
+    margin-top: 1em;
+}
+
+#customerFeedback{
+    width: 26em;
+    height: 10em;
+    text-align: center;
+    border: 2.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 1em;
+    margin-top: 0;
+}
+
+form button{
+    margin: 1em;
+    width: 7em;
+    color: white;
+    background-color: var(--buttonColor);
+    border: 2px solid var(--buttonColor);
+    border-radius: 1em;
+}
+
+form button:hover{
+    color: var(--orange);
+}
+
+#cSEmail{
+    width: 21em;
+}
+
+.feedbackName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 1em;
+}
+
+/* interactive */
+.navbar a:visited{
+    color: var(--burntOrange)
+}
+
+.navbar a:link{
+    color: var(--burntOrange)
+}
+
+.navbar a:hover{
+    color: var(--mustardOrange);
+}
+
+.banner button:hover{
+    color: var(--burgundy);
+}
+
+footer a:visited{
+    color: var(--burntOrange)
+}
+
+footer a:link{
+    color: var(--burntOrange)
+}
+
+footer a:hover{
+    color: var(--hoverColor);
+}
+
+
+@media (max-width: 799px) and (min-width: 650px){
+    /* banner */
+    .banner{
+        height: 40vh;
+        width: 100vw;
+        background-position: 50% 100%;
+    }
+
+    .banner button{
+        width: 7em;
+        height: 2em;
+    }
+
+    .banner img{
+        height: 5em;
+    }
+
+    .rowSection p{
+        min-width: 5em;
+        max-width: 50em;
+    }
+
+    .rowSection .text{
+        min-width: 15em;
+        max-width: 30em;
+        font-size: 1.25em;
+        text-align: left;
+        margin-top: 2em;
+    }
+
+    .rowSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        padding: 0;
+        margin: 1em;
+        z-index: 1;
+        background-color: white;
+        margin-right: 0;
+        margin-bottom: 7em;
+    }
+    
+
+    .aboutUs{
+        margin-top: 1em;
+    }
+    
+    /* images */
+    .square{
+        width: 20em;
+        height: 20em;
+        object-fit: fill;
+    }
+
+    .squareLarge{
+        width: 20em;
+        height: 20em;
+        object-fit: fill;
+        margin: 0;
+    }
+
+    .image{
+        margin: 0 2em;
+    }
+    
+    .image img{
+        margin: 0;
+    } 
+
+    .imageRight{
+        display: none;
+    }
+
+    .imageCarousel{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5em;
+    }
+
+    /* footer */
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer iframe{
+        width: 15em;
+        height: 15em;
+    }
+    
+    footer h1{
+        font-size: 1em;
+    }
+    
+    footer p{
+        font-size: .75em;
+    }
+
+}
+
+@media (max-width: 999px) and (min-width: 800px){
+    /* banner */
+    .banner{
+        height: 50vh;
+        width: 100vw;
+    }
+
+    .banner button{
+        width: 10em;
+        height: 2em;
+    }
+
+    .banner img{
+        height: 4.5em;
+    }
+
+    .aboutUs{
+        margin-top: 1em;
+    }
+
+    .aboutUs h2{
+        font-size: 2.5em;
+    }
+
+    .rowSection{
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin: 0;
+        margin-bottom: 7em;
+        background-color: white;
+    }
+    
+    .rowSection .text{
+        min-width: 0;
+        max-width: 15;
+        font-size: 1.25em;
+        text-align: left;
+        margin: 0;
+    }
+    
+    .rowSection p{
+        min-width: 0;
+        max-width: 15em;
+    }
+
+    /* images */
+    .square{
+        width: 15em;
+        height: 15em;
+        object-fit: fill;
+    }
+
+    .squareLarge{
+        width: 20em;
+        height: 20em;
+        object-fit: fill;
+        margin: 0;
+    }
+
+    .image{
+        margin: 0 2em;
+    }
+    
+    .image img{
+        margin: 0;
+    } 
+
+    .imageRight img{
+        width: 30em;
+    }
+
+    .imageRight{
+        padding: 0;
+        margin-left: 0;
+        background-color: white;
+        margin: 3em 0;
+    }
+
+    .imageCarousel{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-bottom: 5em;
+    }
+
+    /* footer */
+    footer iframe{
+        width: 15em;
+        height: 15em;
+    }
+    
+    footer h1{
+        font-size: 1em;
+    }
+    
+    footer p{
+        font-size: .75em;
+    }
+
+}
+
+@media (max-width: 1200px) and (min-width: 1000px){
+    body{
+        margin: 0;
+    }
+    /* banner */
+    .banner{
+        height: 40vh;
+    }
+
+    .banner button{
+        width: 10em;
+        height: 2em;
+    }
+
+    .banner img{
+        height: 4.5em;
+    }
+
+    .rowSection{
+        justify-content: flex-start;
+        margin: 0;
+        margin-bottom: 7em;
+        background-color: white;
+    }
+    
+    .rowSection .text{
+        min-width: 0;
+        max-width: 15;
+       
+    }
+    
+    .rowSection p{
+        min-width: 0;
+        max-width: 15em;
+    }
+
+    .image{
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 2em;
+    }
+
+    .image img{
+        margin: 0;
+    } 
+
+    .imageCarousel{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-bottom: 5em;
+    }
+
+    .imageRight{
+        margin-left: 40em;
+    }
+
+    .imageRight img{
+        width: 40em;
+    }
+
+    /* images */
+    .square{
+        width: 20em;
+        height: 20em;
+        object-fit: fill;
+    }
+
+    .squareLarge{
+        width: 30em;
+        height: 30em;
+        object-fit: fill;
+    }
+}
+

@@ -1,0 +1,158 @@
+html{
+    --lightGrey: #a3a3a3;
+    --todayColor: #f68b4394;
+    --hoverColor: rgb(179, 81, 0);
+    --monthTitleColor: #dd9e37;
+    --fontOne: 'Heebo', sans-serif;
+    --fontTwo: 'Noto Sans HK', sans-serif;
+    --fontThree: 'Poppins', sans-serif;
+    --fontFour: 'Source Sans Pro', sans-serif;
+    --fontFive: 'Titillium Web', sans-serif;
+    --fontSix: 'Ubuntu', sans-serif;
+
+    font-family: var(--fontOne);
+}
+
+
+.textCenter{
+    text-align: center;
+}
+
+.tableHead{
+    padding: .5em;
+    color: var(--hoverColor);
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.flexboxCalendar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.calendarHeading{
+    padding: 0;
+    padding-top: .5em;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.today{
+    background-color: var(--todayColor);
+    border: 0px solid var(--todayColor);
+    border-radius: 50%;
+}
+
+.beforeToday {
+    color: var(--lightGrey);
+}
+
+.cellDesign{
+    padding: .75em;
+}
+
+.calendarDiv{
+    border: .01px solid rgba(0, 0, 0, 0.05);
+    border-radius: 2.5em;
+    margin: 2.5em;
+    padding-bottom: .5em;
+}
+
+.dates{
+    font-weight: none;
+}
+
+.events{
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2em auto;
+    margin-bottom: 8em;
+}
+
+.month{
+    color: var(--monthTitleColor);
+    font-family: var(--fontThree);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+table{
+    min-width: 33em;
+    max-width: 37em;
+
+    min-height: 29em;
+    max-height: 34em;
+}
+
+td{
+    min-width: 4em;
+    max-width: 4.7em;
+
+    min-height: 6em;
+    max-height: 8.5em;
+}
+
+/*pop up*/
+.dialog{
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 1em;
+    padding: 2em;
+
+    font-family: var(--fontThree);
+    margin: auto;
+}
+
+.dialog h1{
+    color: var(--monthTitleColor);
+    font-family: var(--fontThree);
+    font-weight: bold;
+
+    margin-bottom: .75em;
+}
+
+.dialog label{
+    font-size: 1.25em;
+    padding-right: .5em;
+    margin-left: 2.85em;
+}
+
+.dialog button{
+    margin: .25em 1em;
+    margin-top: .75em;
+
+    background-color: var(--todayColor);
+    border: 0px solid var(--todayColor);
+    border-radius: 2.5em;
+    width: 8em;
+
+    padding: .5em;
+}
+/* interaction */
+/*calendar*/
+.dates:hover{
+    color: var(--hoverColor);
+    font-weight: bold;
+    background-color: rgba(61, 61, 61, 0.10);
+    border: 0px solid rgba(61, 61, 61, 0.10);
+    border-radius: 50%;
+}
+
+.calendarDiv:hover{
+    box-shadow: 0 0 25px rgba(128, 128, 128, 0.5);
+}
+
+.header{
+    text-align: center;
+    font-size: 3em;
+    font-family: var(--fontThree);
+    color: var(--headerColor);
+
+    margin-bottom: 0;
+    padding-top: 1em ;
+}

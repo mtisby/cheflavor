@@ -1,0 +1,57 @@
+.menuSectionDiv {
+    width: 90vw;
+    margin: 2em;
+}
+
+.menuItemDiv {
+    width: 20em;
+    margin: 2em;
+    font-size: 1em;
+    text-align: center;
+
+    transition: all 1.25s;
+}
+
+.menuItemTitle{
+    font-size: 1.5em;
+}
+
+.menuHeader{
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+} 
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.border{
+    border: 2px solid black;
+}
+
+.squarePicture{
+    width: 20em;
+    height: 20em;
+    margin: auto;
+    object-fit: cover;
+    text-align: center;
+}
+
+
+/* interactive */
+.menuItemDiv:hover{
+    box-shadow: 0 0 50px rgba(128, 128, 128, 0.50);
+}
