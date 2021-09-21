@@ -1,5 +1,6 @@
 const container = document.querySelector("#menu");
 container.classList.add('flexCol');
+
 // menu items
 const menu = {
     salads: {
