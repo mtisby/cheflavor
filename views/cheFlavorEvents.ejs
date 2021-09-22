@@ -44,8 +44,9 @@
             </div>
 
             <dialog id="popUp" class="dialog">
-                <form method="dialog" class="form">
+                <form action="/cheflavor/events" method="POST" class="form">
                     <h1 id="selectedDate"></h1>
+                    <!-- change this h1 to an input and autochange value -->
                     <label for="selectTime">Please Select a Time</label>
                     <select name="timeSelected" id="timeSelected">
                         <option value="timeTen">10am</option>
@@ -62,10 +63,11 @@
                     </select>
 
                     <menu>
-                        <button value="cancel">Cancel</button>
                         <button id="confirmBtn" value="default">Confirm</button>
                     </menu>
                 </form>
+
+                <button value="cancel">Cancel</button>
             </dialog>
 
         </div>

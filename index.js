@@ -7,7 +7,7 @@ import { Feedback } from "./models/feedback.js"
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { Feedback } from "./models/feedback.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -45,7 +45,7 @@ app.get('/cheflavor/contactus', (req, res) => {
     res.render('./contactus.ejs')
 })
 
-app.post('/cheflavor/contactus', (req, res) => {
+app.post('/cheflavor/contactus', async (req, res) => {
     const feedback = new Feedback(req.body.campground);
     await feedback.save()
     res.redirect('/cheflavor')
@@ -60,6 +60,10 @@ app.get('/cheflavor/events', (req, res) => {
     res.render('./cheFlavorEvents.ejs')
 })
 
+app.post('/cheflavor/events', (req, res) => {
+    console.log(req.body)
+    res.send('hello??')
+})
 
 app.listen(3000, () => {
     console.log(`listening on : ${port}`)
