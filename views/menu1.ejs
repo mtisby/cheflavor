@@ -32,12 +32,10 @@
     </div>
 
     <h1>our menu</h1>
-
     <div class="menu" id="menu">
-        <% for (var category of orderedCategories) {%>
-            <h1><%=category%></h1>
-        <%}%>
-        
+        <% for item of menu {%>
+            <p><%item%></p>
+        <% } %>
     </div>
     
     
@@ -47,7 +45,8 @@
     <footer id="footer" class="footer">
         
     </footer>
-
+    
+    <script src="/scripts/menu.js"></script>
     <script src="/scripts/navigation.js"></script>
     <script src="/scripts/footer.js"></script>
 </body>
