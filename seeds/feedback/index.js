@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
-import { Menu } from "../models/menuitems.js";
-import { menuitems } from "./startingmenu.js"
+import { Feedback } from "../../models/feedback.js";
+
 
 mongoose.connect('mongodb://localhost:27017/cheflavor');
 
@@ -11,14 +11,14 @@ db.once("open", () => {
 });
 
 const seedDB = async () => {
-    await Menu.deleteMany({});
+    await Feedback.deleteMany({});
 
-    for (var items of menuitems) {
-        const item = new Menu(
-            items
-        )
-        await item.save()
-    }
+    const firstFeedback = new Feedback({
+        name: "Mark Green",
+        email: "mgreen@hotmail.com",
+        text: "awesome restaurant Mark!"
+    })
+    await firstFeedback.save()
 }
 
 seedDB().then(() => {
