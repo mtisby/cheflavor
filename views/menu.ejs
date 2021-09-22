@@ -33,11 +33,25 @@
 
     <h1>our menu</h1>
 
-    <div class="menu" id="menu">
+    <div class="menu flexCol" id="menu">
         <% for (var category of orderedCategories) {%>
-            <h1><%=category%></h1>
+            <div class="menuSectionDiv">
+                <h1 class="menuHeader"><%=category%></h1>
+                <div class="flexRow">
+                    <% for (var item of menu) {%>
+                        
+                        <%if (item.category === category) {%>
+                            <div class="menuItemDiv border flexCol">
+                                <img src=<%= item.img %> class="squarePicture">
+                                <h1 class="menuItemTitle"><%= item.title %></h1>
+                                <p><%= item.description %></p>
+                                <p><%= item.price %></p>
+                            </div>
+                        <%}%>
+                    <%}%>
+                </div>
+            </div>
         <%}%>
-        
     </div>
     
     
