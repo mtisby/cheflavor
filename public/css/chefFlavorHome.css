@@ -18,7 +18,7 @@ html{
     --buttonColor: #dd9e37;
 
     /* images to use */
-    --homepgBanner: url(../images/homebg2.jpg);
+    --homepgBanner: url(/images/homebg2.jpg);
 }
 
 body{

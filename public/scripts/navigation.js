@@ -1,7 +1,7 @@
 // get container element
 const navigation = document.querySelector("#naviagtion");
 navigation.classList.add('navigation');
-const logoURL = logo = "./images/logo.png";
+const logoURL = logo = "/images/logo.png";
 
 const logoImg = document.createElement("img");
 logoImg.src = logoURL;
@@ -12,10 +12,10 @@ const nestedDiv = document.createElement("div");
 nestedDiv.classList.add('nestedDiv');
 const ul = document.createElement("ul");
 const dictOfLi = {
-    home: "./index.html",
-    contactUs: "./contactus.html",
-    menu: "./menu.html",
-    events: "./cheFlavorEvents.html"
+    home: "/cheflavor",
+    contactUs: "/cheflavor/contactus",
+    menu: "/cheflavor/menu",
+    events: "/cheflavor/events"
 }
 
 const listOfLiKeys = Object.keys(dictOfLi);

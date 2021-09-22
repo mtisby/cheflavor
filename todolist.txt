@@ -1,0 +1,2 @@
+1. Store menu data in database
+2. create login for the owner so that they can add and delete menu items
