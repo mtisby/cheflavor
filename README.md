@@ -11,6 +11,8 @@ On the restaurant owner's side, it allows them to access customer feedback, allo
 <h5>Languages Used</h5>
 <ul>
     <li>JavaScript</li>
+    <li>EJS</li>
+    <li>CSS</li>
 </ul>
 
 <h5>Frameworks</h5>
