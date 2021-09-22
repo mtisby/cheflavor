@@ -3,7 +3,8 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema;
 
 const feedbackSchema = new Schema({
-    name: String,
+    firstName: String,
+    lastName: String,
     email: String,
     text: String,
 })

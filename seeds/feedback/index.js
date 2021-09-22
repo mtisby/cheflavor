@@ -14,7 +14,8 @@ const seedDB = async () => {
     await Feedback.deleteMany({});
 
     const firstFeedback = new Feedback({
-        name: "Mark Green",
+        firstName: "Mark",
+        lastName: "Green",
         email: "mgreen@hotmail.com",
         text: "awesome restaurant Mark!"
     })

@@ -3,9 +3,11 @@ import mongoose from "mongoose"
 import methodOverride from "method-override"
 import path from 'path';
 import { Menu } from "./models/menuitems.js"
+import { Feedback } from "./models/feedback.js"
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { Feedback } from "./models/feedback.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,6 +46,8 @@ app.get('/cheflavor/contactus', (req, res) => {
 })
 
 app.post('/cheflavor/contactus', (req, res) => {
+    const feedback = new Feedback(req.body.campground);
+    await feedback.save()
     res.redirect('/cheflavor')
 })
 
