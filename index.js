@@ -32,6 +32,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/js'));
 
 app.get('/cheflavor', (req, res) => {
     res.render('./index.ejs')
@@ -42,7 +43,7 @@ app.get('/cheflavor/contactus', (req, res) => {
 })
 
 app.get('/cheflavor/menu', (req, res) => {
-    res.render('./menu.ejs')
+    res.render('./menu.ejs', {__dirname})
 })
 
 app.get('/cheflavor/events', (req, res) => {
