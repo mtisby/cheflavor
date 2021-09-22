@@ -44,6 +44,10 @@ app.get('/cheflavor/contactus', (req, res) => {
     res.render('./contactus.ejs')
 })
 
+app.post('/cheflavor/contactus', (req, res) => {
+    res.redirect('/cheflavor')
+})
+
 app.get('/cheflavor/menu', (req, res) => {
     res.render('./menu.ejs', { __dirname })
 })
