@@ -205,3 +205,30 @@ td{
     margin-bottom: 0;
     padding-top: 1em ;
 }
+
+.headerDivFirst{
+    display: flex;
+    justify-content: center;
+}
+
+.hide{
+    display: none;
+}
+
+.visualhide{
+    opacity: 0;
+}
+
+.buttonRight{
+    background-color: rgba(0, 0, 0, 0.0);
+    color: gray;
+    border: .25px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
+
+.buttonLeft{
+    background-color: rgba(0, 0, 0, 0.0);
+    color: gray;
+    border: .25px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
