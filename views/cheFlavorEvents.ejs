@@ -44,30 +44,49 @@
             </div>
 
             <dialog id="popUp" class="dialog">
+                <div class="cancel"><button id="cancel"><a href="/cheflavor/events">Cancel</a></button></div>
                 <form action="/cheflavor/events" method="POST" class="form">
-                    <h1 id="selectedDate"></h1>
-                    <!-- change this h1 to an input and autochange value -->
-                    <label for="selectTime">Please Select a Time</label>
-                    <select name="timeSelected" id="timeSelected">
-                        <option value="timeTen">10am</option>
-                        <option value="timeEleven">11am</option>
-                        <option value="timeNoon">12pm</option>
-                        <option value="timeOne">1pm</option>
-                        <option value="timeTwo">2pm</option>
-                        <option value="timeThree">3pm</option>
-                        <option value="timeFour">4pm</option>
-                        <option value="timeFive">5pm</option>
-                        <option value="timeSix">6pm</option>
-                        <option value="timeSeven">7pm</option>
-                        <option value="timeEight">8pm</option>
-                    </select>
-
-                    <menu>
-                        <button id="confirmBtn" value="default">Confirm</button>
-                    </menu>
+                    <div class="formDiv">
+                        <p><input type="text" name="dateSelected" id="dateSelected"></p>
+                        <!-- change this h1 to an input and autochange value -->
+                        <div>
+                            <label for="selectTime">Please Select a Time</label>
+                            <select name="timeSelected" id="timeSelected">
+                                <option value="timeTen">10am</option>
+                                <option value="timeEleven">11am</option>
+                                <option value="timeNoon">12pm</option>
+                                <option value="timeOne">1pm</option>
+                                <option value="timeTwo">2pm</option>
+                                <option value="timeThree">3pm</option>
+                                <option value="timeFour">4pm</option>
+                                <option value="timeFive">5pm</option>
+                                <option value="timeSix">6pm</option>
+                                <option value="timeSeven">7pm</option>
+                                <option value="timeEight">8pm</option>
+                            </select>
+                        </div>
+                        <div class="contactInfo">
+                            <h3>contact info</h3>
+                            <div class="feedbackName">
+                                <div><label for="firstName">First Name</label>
+                                <br><input type="text" placeholder="ex. Matt" id="firstName"></div>
+                                <div><label for="lastName">Last Name</label>
+                                <br><input type="text" placeholder="ex. Green" id="lastName"></div>
+                            </div>
+                            <div >
+                                <label for="email">Email</label>
+                                <input type="text" id="email" placeholder="mattgreen123@gmail.com">
+                                <br>
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="number" id="phoneNumber" placeholder="1234567890">
+                            </div>
+                        </div>
+                        <menu>
+                            <button id="confirmBtn" value="default">Confirm</button>
+                        </menu>
+                    </div>
                 </form>
 
-                <button value="cancel"><a href="/cheflavor/events">Cancel</a></button>
             </dialog>
 
         </div>

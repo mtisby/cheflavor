@@ -115,11 +115,11 @@ for (var x = 0; x < monthsToShow; x++) {
 
    calendarTable.addEventListener('click', function onOpen(e) {
        const value = e.srcElement.innerText;
-       const popUpHeader = document.querySelector('#selectedDate');
+       const popUpHeader = document.querySelector('#dateSelected');
        popUpHeader.classList.add('textCenter');
        const monthValue = e.path[4].querySelector('h1').innerText;
 
-       popUpHeader.innerText = `${monthValue} ${value}`;
+       popUpHeader.value = `${monthValue} ${value}`;
        if (typeof popUp.showModal === "function") {
            popUp.showModal();
        } else {
@@ -223,3 +223,11 @@ for (var x = 0; x < monthsToShow; x++) {
 };
 
 
+const cancelButton = document.querySelector("#cancel");
+cancelButton.addEventListener('click', function onOpen(e) {
+    if (typeof popUp.showModal === "function") {
+        popUp.close();
+    } else {
+      alert("The <dialog> API is not supported by this browser");
+    }
+  });
