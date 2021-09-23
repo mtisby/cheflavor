@@ -1,4 +1,4 @@
-<h1><img src="./public/images/logo.png">Cheflavor</h1>
+<h1><img src="./public/images/logo.png" width="15px">Cheflavor</h1>
 
 <p>This project is a website created for a close friend's restaurant Cheflavor.
 It showcases the restaurants atmosphere, menu, allows for customer feedback, and allows customers to schedule catering events.
