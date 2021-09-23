@@ -1,0 +1,15 @@
+.thankYou{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thankYou h1{
+    text-align: center;
+}
+
+.thankYouList{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
