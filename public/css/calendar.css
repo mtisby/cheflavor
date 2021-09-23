@@ -206,6 +206,12 @@ td{
     padding-top: 1em ;
 }
 
+.headerDiv{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .headerDivFirst{
     display: flex;
     justify-content: center;
