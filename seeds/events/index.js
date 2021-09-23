@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import { Event } from "../../models/events.js";
+import { Event } from "../../models/event.js";
 
 
 mongoose.connect('mongodb://localhost:27017/cheflavor');
@@ -14,12 +14,12 @@ const seedDB = async () => {
     await Event.deleteMany({});
 
     const firstEvent = new Event({
-        dateSelected: String,
-        timeSelected: String,
-        firstName: String,
-        lastName: String,
-        email: String,
-        phoneNumber: Number
+        dateSelected: "Jan 1",
+        timeSelected: "Tweleve",
+        firstName: "John",
+        lastName: "Smith",
+        email: "J Smith",
+        phoneNumber: 9152391220
     })
     await firstEvent.save()
 }

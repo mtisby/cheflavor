@@ -62,7 +62,11 @@ app.get('/cheflavor/events', (req, res) => {
 
 app.post('/cheflavor/events', (req, res) => {
     console.log(req.body)
-    res.send('hello??')
+    res.redirect('/cheflavor/eventConfirmation')
+})
+
+app.get('/cheflavor/eventConfirmation', (req, res) => {
+    res.render('./eventConfirmation.ejs')
 })
 
 app.listen(3000, () => {

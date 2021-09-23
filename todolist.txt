@@ -6,3 +6,4 @@
 4. [x] update calendar
 5. [x] add a backend to calendar
 6. [] refine backend for feedback form -- basically check for human error
+7. [x] redesign redirection page
