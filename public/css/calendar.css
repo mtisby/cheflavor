@@ -212,6 +212,10 @@ td{
     align-items: center;
 }
 
+.headerDiv button{
+    margin-top: 1.5em;
+}
+
 .headerDivFirst{
     display: flex;
     justify-content: center;
