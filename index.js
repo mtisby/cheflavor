@@ -4,6 +4,7 @@ import methodOverride from "method-override"
 import path from 'path';
 import { Menu } from "./models/menuitems.js"
 import { Feedback } from "./models/feedback.js"
+import { Event } from "./models/event.js"
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -46,7 +47,7 @@ app.get('/cheflavor/contactus', (req, res) => {
 })
 
 app.post('/cheflavor/contactus', async (req, res) => {
-    const feedback = new Feedback(req.body.campground);
+    const feedback = new Feedback(req.body);
     await feedback.save()
     res.redirect('/cheflavor')
 })
@@ -60,9 +61,18 @@ app.get('/cheflavor/events', (req, res) => {
     res.render('./cheFlavorEvents.ejs')
 })
 
-app.post('/cheflavor/events', (req, res) => {
-    console.log(req.body)
-    res.redirect('/cheflavor/eventConfirmation')
+app.post('/cheflavor/events', async (req, res) => {
+    const event = new Event(req.body);
+    await event.save()
+        .then(data => {
+            console.log('it worked!!')
+            console.log(data)
+            res.redirect('/cheflavor/eventConfirmation')
+        })
+        .catch(err => {
+            console.log('oops bih')
+            console.log(err.message);
+        })
 })
 
 app.get('/cheflavor/eventConfirmation', (req, res) => {

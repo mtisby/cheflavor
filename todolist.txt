@@ -5,5 +5,5 @@
 3. [x] add a backend for feedback form and also store in database
 4. [x] update calendar
 5. [x] add a backend to calendar
-6. [] refine backend for feedback form -- basically check for human error
+6. [] error check all forms
 7. [x] redesign redirection page
