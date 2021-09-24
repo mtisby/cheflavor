@@ -189,7 +189,7 @@ for (var x = 0; x < monthsToShow; x++) {
        if ( e.path[4].querySelector('h1').innerText === today.slice(4,7) && parseInt(cell.innerText) < parseInt(today.slice(8,10))) { return; } // Quit, not clicked on a cell
        
        const value = e.srcElement.innerText;
-       const popUpHeader = document.querySelector('#selectedDate');
+       const popUpHeader = document.querySelector('#dateSelected');
        popUpHeader.classList.add('textCenter');
        const monthValue = e.path[4].querySelector('h1').innerText;
 
