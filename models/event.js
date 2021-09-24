@@ -3,12 +3,30 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-    dateSelected: String,
-    timeSelected: String,
-    firstName: String,
-    lastName: String,
-    email: String,
-    phoneNumber: Number
+    dateSelected: {
+        type: String,
+        required: true
+    },
+    timeSelected: {
+        type: String,
+        required: true
+    },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phoneNumber: {
+        type: Number,
+        required: true
+    }
 })
 
 const Event = mongoose.model('Event', eventSchema);
