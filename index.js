@@ -79,6 +79,10 @@ app.get('/cheflavor/eventConfirmation', (req, res) => {
     res.render('./eventConfirmation.ejs')
 })
 
+app.use((req, res) => {
+    res.send('Not Found')
+})
+
 app.listen(3000, () => {
     console.log(`listening on : ${port}`)
 })
