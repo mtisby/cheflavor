@@ -5,6 +5,9 @@ import path from 'path';
 import { Menu } from "./models/menuitems.js"
 import { Feedback } from "./models/feedback.js"
 import { Event } from "./models/event.js"
+import { asyncWrap } from "./utilis/asyncWrap.js"
+import { ExpressError } from "./utilis/ExpressError.js"
+import { eventSchema } from "./schemas/schemas.js";
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -14,7 +17,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const orderedCategories = ['salads', 'flatbreads', 'appetizers', 'sandwiches', 'burgers'];
 
-console.log(__dirname)
+const validateEvent = (req, res, next) => {
+    
+    const{error} = eventSchema.validate(req.body)
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(result.error.details, 400)
+    }
+    next(error)
+}
 
 mongoose.connect('mongodb://localhost:27017/cheflavor', {
     useNewUrlParser: true,
@@ -61,19 +72,11 @@ app.get('/cheflavor/events', (req, res) => {
     res.render('./cheFlavorEvents.ejs')
 })
 
-app.post('/cheflavor/events', async (req, res) => {
+app.post('/cheflavor/events', validateEvent(async (req, res) => {
     const event = new Event(req.body);
     await event.save()
-        .then(data => {
-            console.log('it worked!!')
-            console.log(data)
-            res.redirect('/cheflavor/eventConfirmation')
-        })
-        .catch(err => {
-            console.log('oops bih')
-            console.log(err.message);
-        })
-})
+    res.redirect('/cheflavor/eventConfirmation')
+}))
 
 app.get('/cheflavor/eventConfirmation', (req, res) => {
     res.render('./eventConfirmation.ejs')
