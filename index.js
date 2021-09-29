@@ -24,7 +24,7 @@ const validateEvent = (req, res, next) => {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(result.error.details, 400)
     }
-    next(error)
+    next();
 }
 
 mongoose.connect('mongodb://localhost:27017/cheflavor', {
@@ -57,33 +57,38 @@ app.get('/cheflavor/contactus', (req, res) => {
     res.render('./contactus.ejs')
 })
 
-app.post('/cheflavor/contactus', async (req, res) => {
+app.post('/cheflavor/contactus', asyncWrap(async (req, res) => {
     const feedback = new Feedback(req.body);
     await feedback.save()
     res.redirect('/cheflavor')
-})
+}))
 
-app.get('/cheflavor/menu', async (req, res) => {
+app.get('/cheflavor/menu', asyncWrap(async (req, res) => {
     const menu = await Menu.find({});
     res.render('./menu.ejs', {menu, orderedCategories})
-})
+}))
 
 app.get('/cheflavor/events', (req, res) => {
     res.render('./cheFlavorEvents.ejs')
 })
 
-app.post('/cheflavor/events', validateEvent(async (req, res) => {
-    const event = new Event(req.body);
-    await event.save()
+app.post('/cheflavor/events', validateEvent(asyncWrap(async (req, res) => {
+    const evt = new Event(req.body.event);
+    await evt.save()
     res.redirect('/cheflavor/eventConfirmation')
-}))
+})))
 
 app.get('/cheflavor/eventConfirmation', (req, res) => {
     res.render('./eventConfirmation.ejs')
 })
 
-app.use((req, res) => {
-    res.send('Not Found')
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found', 404))
+})
+
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "something went wrong" } = err;
+    res.send(`${statusCode} ${message}`)
 })
 
 app.listen(3000, () => {

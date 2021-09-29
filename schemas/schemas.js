@@ -1,13 +1,13 @@
-import Joi from "joi"
+import joi from "joi"
 
-const eventSchema = Joi.object({
-    event: Joi.object({
-        dateSelected: Joi.string().required(),
-        timeSelected: Joi.string().required(),
-        firstName: Joi.string().required(),
-        lastName: Joi.string().required(),
-        email: Joi.string().required(),
-        phoneNumber: Joi.phoneNumber().required()
+const eventSchema = joi.object({
+    event: joi.object({
+        dateSelected: joi.string().required(),
+        timeSelected: joi.string().required(),
+        firstName: joi.string().required(),
+        lastName: joi.string().required(),
+        email: joi.string().required(),
+        phoneNumber: joi.number().required()
     }).required()
 });
 
