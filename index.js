@@ -17,16 +17,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const orderedCategories = ['salads', 'flatbreads', 'appetizers', 'sandwiches', 'burgers'];
 
-const validateEvent = (req, res, next) => {
-    
-    const{error} = eventSchema.validate(req.body)
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(result.error.details, 400)
-    }
-    next();
-}
-
 mongoose.connect('mongodb://localhost:27017/cheflavor', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -37,7 +27,6 @@ db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database connected");
 });
-
 
 const app = express();
 const port = 3000;
@@ -72,11 +61,19 @@ app.get('/cheflavor/events', (req, res) => {
     res.render('./cheFlavorEvents.ejs')
 })
 
-app.post('/cheflavor/events', validateEvent(asyncWrap(async (req, res) => {
-    const evt = new Event(req.body.event);
-    await evt.save()
-    res.redirect('/cheflavor/eventConfirmation')
-})))
+app.post('/cheflavor/events', asyncWrap(async (req, res) => {
+    const event = new Event(req.body);
+    await event.save()
+        .try(data => {
+            console.log('it worked!!')
+            console.log(data)
+            res.redirect('/cheflavor/eventConfirmation')
+        })
+        .catch(err => {
+            console.log('oops bih')
+            console.log(err.message);
+        })
+}))
 
 app.get('/cheflavor/eventConfirmation', (req, res) => {
     res.render('./eventConfirmation.ejs')
@@ -88,7 +85,7 @@ app.all('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "something went wrong" } = err;
-    res.send(`${statusCode} ${message}`)
+    res.status(statusCode).render('./errors/error.ejs', {err})
 })
 
 app.listen(3000, () => {

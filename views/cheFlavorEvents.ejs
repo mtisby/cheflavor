@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200&family=Fira+Sans&family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <!--style sheet-->
     <link href="/css/chefFlavorHome.css" type="text/css" rel="stylesheet">
     <link href="/css/navigation.css" type="text/css" rel="stylesheet">
@@ -47,11 +50,11 @@
                 <div class="cancel"><button id="cancel"><a href="/cheflavor/events">Cancel</a></button></div>
                 <form action="/cheflavor/events" method="POST" class="form">
                     <div class="formDiv">
-                        <p><input type="text" name="dateSelected" id="dateSelected"></p>
+                        <p><input type="text" name="dateSelected" id="dateSelected" class="form-control is-valid"></p>
                         <!-- change this h1 to an input and autochange value -->
                         <div>
-                            <label for="selectTime">Please Select a Time</label>
-                            <select name="timeSelected" id="timeSelected">
+                            <label for="selectTime" class="form-label">Please Select a Time</label>
+                            <select name="timeSelected" id="timeSelected" class="form-control">
                                 <option value="timeTen">10am</option>
                                 <option value="timeEleven">11am</option>
                                 <option value="timeNoon">12pm</option>
@@ -68,17 +71,17 @@
                         <div class="contactInfo">
                             <h2>contact info</h2>
                             <div class="eventName">
-                                <div><label for="firstName">First Name</label>
-                                <br><input type="text" placeholder="ex. Matt" id="firstName" name="firstName"></div>
-                                <div><label for="lastName">Last Name</label>
-                                <br><input type="text" placeholder="ex. Green" id="lastName" name="lastName"></div>
+                                <div><label for="firstName" class="form-label">First Name</label>
+                                <br><input type="text" placeholder="ex. Matt" id="firstName" name="firstName" class="form-control"></div>
+                                <div><label for="lastName" class="form-label">Last Name</label>
+                                <br><input type="text" placeholder="ex. Green" id="lastName" name="lastName" class="form-control"></div>
                             </div>
                             <div class="emailAndPhone">
-                                <div><label for="email">Email</label>
-                                <input type="text" id="email" placeholder="mattgreen123@gmail.com" name="email"></div>
+                                <div><label for="email" class="form-label">Email</label>
+                                <input type="text" id="email" placeholder="mattgreen123@gmail.com" name="email" class="form-control"></div>
                                 <br>
-                                <div><label for="phoneNumber">Phone Number</label>
-                                <input type="number" id="phoneNumber" placeholder="1234567890" name="phoneNumber"></div>
+                                <div><label for="phoneNumber" class="form-label">Phone Number</label>
+                                <input type="number" id="phoneNumber" placeholder="1234567890" name="phoneNumber" class="form-control"></div>
                             </div>
                         </div>
                         <menu>
