@@ -63,16 +63,15 @@ app.get('/cheflavor/events', (req, res) => {
 
 app.post('/cheflavor/events', asyncWrap(async (req, res) => {
     const event = new Event(req.body);
-    await event.save()
-        .try(data => {
-            console.log('it worked!!')
-            console.log(data)
-            res.redirect('/cheflavor/eventConfirmation')
-        })
-        .catch(err => {
-            console.log('oops bih')
-            console.log(err.message);
-        })
+    try{
+        await event.save()
+        console.log('it worked!!')
+        res.redirect('/cheflavor/eventConfirmation')
+    }
+    catch (error) {
+        console.log(`oops bih ${error}`)
+        next(error)
+    }
 }))
 
 app.get('/cheflavor/eventConfirmation', (req, res) => {
