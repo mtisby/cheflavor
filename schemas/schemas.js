@@ -1,3 +1,5 @@
+// server-side validation schema
+
 import joi from "joi"
 
 const eventSchema = joi.object({
@@ -7,7 +9,7 @@ const eventSchema = joi.object({
         firstName: joi.string().required(),
         lastName: joi.string().required(),
         email: joi.string().required(),
-        phoneNumber: joi.number().required()
+        phoneNumber: joi.string().length(10).pattern(/^[0-9]+$/).required()
     }).required()
 });
 

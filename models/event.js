@@ -24,7 +24,7 @@ const eventSchema = new Schema({
         required: true
     },
     phoneNumber: {
-        type: Number,
+        type: String,
         required: true,
         minlength: 10
     }

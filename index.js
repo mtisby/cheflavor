@@ -62,16 +62,34 @@ app.get('/cheflavor/events', (req, res) => {
 })
 
 app.post('/cheflavor/events', asyncWrap(async (req, res) => {
+    const eventSchema = joi.object({
+        events: joi.object({
+            dateSelected: joi.string().required(),
+            timeSelected: joi.string().required(),
+            firstName: joi.string().required(),
+            lastName: joi.string().required(),
+            email: joi.string().required(),
+            phoneNumber: joi.string().length(10).pattern(/^[0-9]+$/).required()
+        }).required()
+    })
+    const { error } = eventSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    }
+    console.log(result);
     const event = new Event(req.body);
-    try{
-        await event.save()
-        console.log('it worked!!')
-        res.redirect('/cheflavor/eventConfirmation')
-    }
-    catch (error) {
-        console.log(`oops bih ${error}`)
-        next(error)
-    }
+    await event.save()
+    res.redirect('/cheflavor/eventConfirmation')
+    // try{
+    //     await event.save()
+    //     console.log('it worked!!')
+    //     res.redirect('/cheflavor/eventConfirmation')
+    // }
+    // catch (error) {
+    //     console.log(`oops bih ${error}`)
+    //     next(error)
+    // }
 }))
 
 app.get('/cheflavor/eventConfirmation', (req, res) => {
