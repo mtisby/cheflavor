@@ -105,10 +105,8 @@ function makeCols(i, calendarRow, counting, startInd) {
            calendarCol.appendChild(cellText);
 
            if (listOfDates[x][counting] === parseInt(today.slice(8, 10)) && monthsToDisplay[x] === today.slice(4, 7)) {
-               calendarCol.classList;
                calendarCol.classList.add('today');
            } else if (listOfDates[x][counting] < parseInt(today.slice(8, 10)) && monthsToDisplay[x] === today.slice(4, 7)) {
-               calendarCol.classList;
                calendarCol.classList.add('beforeToday');
            } else {
                calendarCol.classList.add('dates');
@@ -208,13 +206,6 @@ for (var x = 0; x < monthsToShow; x++) {
    
    // make table rows and columns
    for (var i = 0; i < numOfRows; i++) {
-       if (debugging === true) {
-           console.log(`row num: ${i}`)
-           if (i === numOfRows - 1) {
-               console.log('i am the last row')
-               console.log(`here is the last index ${startInd}`)
-           }
-       }
        const calendarRow = document.createElement('tr');
        if (i === 0) {
            for (var j = 0; j < 7; j++) {
