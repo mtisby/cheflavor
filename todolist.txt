@@ -9,3 +9,4 @@
 7. [] create login for the owner so that they can add and delete menu items
 8. [] create and event script which looks through the events and blocks out dates that have already been requested
 9. [x] implement google calendar api
+10. [] create images for staff portal
