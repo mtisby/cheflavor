@@ -38,6 +38,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
 
+//********************//
+//** customer paths **//
+//********************//
 app.get('/cheflavor', (req, res) => {
     res.render('./index.ejs', { __dirname })
 })
@@ -77,6 +80,14 @@ app.get('/cheflavor/eventConfirmation', (req, res) => {
     res.render('./eventConfirmation.ejs')
 })
 
+//******************//
+//** staff portal **//
+//******************//
+
+
+//*************//
+//** general **//
+//*************//
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 })
