@@ -27,11 +27,20 @@ if (parseInt(today.slice(12, 16), 10) % 4 === 0) {
 // functions 
 // finding starting index & the date
 function startDate(currentDate) {
-   const dayInd = daysOfWeekDict[today.slice(0, 3)];
-   const dateNum = parseInt(today.slice(8, 10));
+    const dayInd = daysOfWeekDict[today.slice(0, 3)];
+    const dateNum = parseInt(today.slice(8, 10));
 
-   const remainder = dateNum % 7;
-   return Math.abs(dayInd - remainder);
+    let remainder = dateNum % 7;
+    let finalValue = 0;
+    
+    if ((dayInd - remainder) < 0) {
+        const offset = 7;
+        finalValue = (dayInd - remainder) + offset;
+    } else {
+        finalValue = (dayInd - remainder)
+    }
+
+    return finalValue;
 }
 // create and return a list which contains the name of the months to display
 function listOfMonths() {
@@ -92,7 +101,7 @@ function getNumOfRows(listOfDates, x) {
 }
 
 function makeCols(i, calendarRow, counting, startInd) {
-   console.log(`beginning ind: ${startInd}`)
+//    console.log(`beginning ind: ${startInd}`)
    var newInd = 0
    for (var j = 0; j < 7; j++) {
        const calendarCol = document.createElement('td');
@@ -128,7 +137,7 @@ function makeCols(i, calendarRow, counting, startInd) {
            }
 
            startInd = newInd;
-           console.log(`index new ${newInd}, old ${startInd}`)
+        //    console.log(`index new ${newInd}, old ${startInd}`)
        } 
 
    }
@@ -145,6 +154,7 @@ let newStartInd = 0;
 
 if (debugging === true) {
     console.log(`starting ind: ${startInd}`)
+    console.log(`today: ${today}`)
 }
 
 // make calendar js objects
