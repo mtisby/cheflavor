@@ -1,3 +1,7 @@
+// imports
+import { EventsLoaded } from './calendarMaintenance.js'
+console.log(EventsLoaded)
+
 // global variables
 const months = {
     Jan: 31, Feb: 28, Mar: 31, April: 30, May: 31, Jun: 30, Jul: 31, Aug: 31,
