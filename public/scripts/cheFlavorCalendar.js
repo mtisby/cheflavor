@@ -12,6 +12,8 @@ const start = 1;
 const monthsToShow = 5;
 const count = 1;
 
+
+//debugging
 const debugging = true;
 
 // select div container that will contain all displayed calendars
