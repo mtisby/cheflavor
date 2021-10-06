@@ -60,9 +60,10 @@ app.get('/cheflavor/menu', asyncWrap(async (req, res) => {
     res.render('./menu.ejs', {menu, orderedCategories})
 }))
 
-app.get('/cheflavor/events', (req, res) => {
-    res.render('./cheFlavorEvents.ejs')
-})
+app.get('/cheflavor/events', asyncWrap(async (req, res) => {
+    const events = await Event.find({});
+    res.render('./cheFlavorEvents.ejs', {events})
+}))
 
 app.post('/cheflavor/events', asyncWrap(async (req, res) => {
     const { error } = eventSchema.validate(req.body, {stripUnknown:true});
