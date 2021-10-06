@@ -12,8 +12,6 @@ const start = 1;
 const monthsToShow = 5;
 const count = 1;
 
-
-//debugging
 const debugging = true;
 
 // select div container that will contain all displayed calendars
@@ -46,7 +44,7 @@ function startDate(currentDate) {
 }
 // create and return a list which contains the name of the months to display
 function listOfMonths() {
-   currentMonth = today.slice(4, 7);
+   let currentMonth = today.slice(4, 7);
    let monthsToDisplay = [];
 
    let countInd = 0;
@@ -229,7 +227,7 @@ for (var x = 0; x < monthsToShow; x++) {
                calendarRow.appendChild(calendarCol);
            }
        } else {
-           indices = makeCols(i, calendarRow, counting, startInd);
+           let indices = makeCols(i, calendarRow, counting, startInd);
            startInd = indices[0];
            counting = indices[1];
        }
