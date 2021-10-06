@@ -37,7 +37,7 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
     <li>mongoose</li>
 </ul>
 
-<h5>Libraries Used</h5>
+<h5>APIs Used</h5>
 <ul>
     <li>Google Calendar API</li>
 </ul>
