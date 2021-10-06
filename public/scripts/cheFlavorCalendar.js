@@ -142,6 +142,11 @@ const listOfDates = listDates(monthsToDisplay); // get the dates for the corresp
 // global variable for holding a new starting index for iterations greater than 0
 let newStartInd = 0;
 
+
+if (debugging === true) {
+    console.log(`starting ind: ${startInd}`)
+}
+
 // make calendar js objects
 for (var x = 0; x < monthsToShow; x++) {
    //make table
@@ -172,10 +177,6 @@ for (var x = 0; x < monthsToShow; x++) {
    } else if (x === monthsToShow - 1) {
        buttonRight.classList.add("visualhide");
        divCalendar.classList.add("hide");
-   }
-
-   if (debugging === true) {
-       console.log(`month: ${monthsToDisplay[x]} ${x}`)
    }
 
    calendarTable.addEventListener('click', function onOpen(e) {
