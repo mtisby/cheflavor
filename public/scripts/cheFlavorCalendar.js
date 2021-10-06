@@ -1,6 +1,4 @@
-// imports
-import { EventsLoaded } from './calendarMaintenance.js'
-console.log(EventsLoaded)
+
 
 // global variables
 const months = {
