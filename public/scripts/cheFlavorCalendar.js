@@ -114,16 +114,17 @@ function getNumOfRows(listOfDates, x) {
    return numOfRows
 }
 
-function checkEventDates(eventDates, month, cellTextDate, calendarCol) {
+function checkEventDates(eventDates, month, cellTextDate, calendarCol, monthsToDisplay) {
     for (var theDay of eventDates) {
-        if (theDay.slice(0, 3) === month && theDay.slice(4, 6) === cellTextDate) {
+        if (theDay.slice(0, 3) === monthsToDisplay[month] && parseInt(theDay.slice(4, 6)) === cellTextDate) {
+            console.log('BINGO')
             calendarCol.classList.add('beforeToday');
         }
         
     }
 }
 
-function makeCols(i, calendarRow, counting, startInd, eventDates, month) {
+function makeCols(i, calendarRow, counting, startInd, eventDates, month, monthsToDisplay) {
 //    console.log(`beginning ind: ${startInd}`)
    var newInd = 0
    for (var j = 0; j < 7; j++) {
@@ -144,7 +145,7 @@ function makeCols(i, calendarRow, counting, startInd, eventDates, month) {
                calendarCol.classList.add('dates');
            }
             const cellTextDate = listOfDates[x][counting]
-            checkEventDates(eventDates, month, cellTextDate, calendarCol)
+            checkEventDates(eventDates, month, cellTextDate, calendarCol, monthsToDisplay)
 
 
            counting++
@@ -223,7 +224,10 @@ for (var x = 0; x < monthsToShow; x++) {
        if (Object.keys(daysOfWeekDict).includes(cell.innerText)) { return; } // Quit, not clicked on a cell
        if (cell.innerText === '') { return; } // Quit, not clicked on a cell
        if ( e.path[4].querySelector('h1').innerText === today.slice(4,7) && parseInt(cell.innerText) < parseInt(today.slice(8,10))) { return; } // Quit, not clicked on a cell
-       
+       if ( cell.classList.includes('beforeToday') ) { return }
+
+        console.log(cell.classList)
+
        const value = e.srcElement.innerText;
        const popUpHeader = document.querySelector('#dateSelected');
        popUpHeader.classList.add('textCenter');
@@ -254,7 +258,7 @@ for (var x = 0; x < monthsToShow; x++) {
                calendarRow.appendChild(calendarCol);
            }
        } else {
-           let indices = makeCols(i, calendarRow, counting, startInd, bookedDates, x);
+           let indices = makeCols(i, calendarRow, counting, startInd, bookedDates, x, monthsToDisplay);
            startInd = indices[0];
            counting = indices[1];
        }
