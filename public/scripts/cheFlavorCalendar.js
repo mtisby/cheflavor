@@ -1,5 +1,3 @@
-
-
 // global variables
 const months = {
     Jan: 31, Feb: 28, Mar: 31, April: 30, May: 31, Jun: 30, Jul: 31, Aug: 31,
@@ -16,6 +14,10 @@ const count = 1;
 
 const debugging = true;
 
+// imported from database
+const confirmedEvents = JSON.parse(eventObj);
+console.log(confirmedEvents)
+
 // select div container that will contain all displayed calendars
 const calendarsContainer = document.querySelector('#calendarContainer');
 const popUp = document.querySelector('#popUp');
@@ -27,6 +29,16 @@ if (parseInt(today.slice(12, 16), 10) % 4 === 0) {
 }
 
 // functions 
+// function for getting day and month of an event
+function getEventDates() {
+    let eventDates = []
+    for (var eventObjects of confirmedEvents) {
+        eventDates.push(eventObjects.dateSelected)
+    }
+
+    return eventDates
+}
+
 // finding starting index & the date
 function startDate(currentDate) {
     const dayInd = daysOfWeekDict[today.slice(0, 3)];
@@ -102,7 +114,16 @@ function getNumOfRows(listOfDates, x) {
    return numOfRows
 }
 
-function makeCols(i, calendarRow, counting, startInd) {
+function checkEventDates(eventDates, month, cellTextDate, calendarCol) {
+    for (var theDay of eventDates) {
+        if (theDay.slice(0, 3) === month && theDay.slice(4, 6) === cellTextDate) {
+            calendarCol.classList.add('beforeToday');
+        }
+        
+    }
+}
+
+function makeCols(i, calendarRow, counting, startInd, eventDates, month) {
 //    console.log(`beginning ind: ${startInd}`)
    var newInd = 0
    for (var j = 0; j < 7; j++) {
@@ -122,6 +143,9 @@ function makeCols(i, calendarRow, counting, startInd) {
            } else {
                calendarCol.classList.add('dates');
            }
+            const cellTextDate = listOfDates[x][counting]
+            checkEventDates(eventDates, month, cellTextDate, calendarCol)
+
 
            counting++
        } else {
@@ -150,13 +174,14 @@ function makeCols(i, calendarRow, counting, startInd) {
 let startInd = startDate(today); // returns the starting date/index for the current month
 const monthsToDisplay= listOfMonths(); // get what months to display
 const listOfDates = listDates(monthsToDisplay); // get the dates for the corresponding months
+let bookedDates = getEventDates();
 // global variable for holding a new starting index for iterations greater than 0
 let newStartInd = 0;
-
 
 if (debugging === true) {
     console.log(`starting ind: ${startInd}`)
     console.log(`today: ${today}`)
+    console.log(`bookedDates ${bookedDates}`)
 }
 
 // make calendar js objects
@@ -229,7 +254,7 @@ for (var x = 0; x < monthsToShow; x++) {
                calendarRow.appendChild(calendarCol);
            }
        } else {
-           let indices = makeCols(i, calendarRow, counting, startInd);
+           let indices = makeCols(i, calendarRow, counting, startInd, bookedDates, x);
            startInd = indices[0];
            counting = indices[1];
        }
