@@ -13,3 +13,4 @@
 11. [] style staff portal 
 12. [] style all forms
 13. [] implement staff portal logic
+14. [] clean up routes
