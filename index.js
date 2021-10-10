@@ -74,10 +74,10 @@ app.post('/cheflavor/events', asyncWrap(async (req, res) => {
     }
     const event = new Event(req.body);
     await event.save()
-    res.redirect('/cheflavor/eventConfirmation')
+    res.redirect('/cheflavor/events/eventConfirmation')
 }))
 
-app.get('/cheflavor/eventConfirmation', (req, res) => {
+app.get('/cheflavor/events/eventConfirmation', (req, res) => {
     res.render('./eventConfirmation.ejs')
 })
 
