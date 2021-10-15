@@ -5,12 +5,17 @@ import flash from "connect-flash"
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import session from "express-session"
+import passport from 'passport'
+import LocalStrategy from 'passport-local'
 
 import { ExpressError } from "./utilis/ExpressError.js"
 
 import { events } from "./paths/events.js"
 import { contactus } from "./paths/contactus.js"
 import { menu } from "./paths/menu.js"
+import { staffUserRoutes } from "./paths/staffportalUser.js"
+import { staffRoutes } from "./paths/staffportalRoutes.js"
 
 import { User } from './models/user.js'
 
@@ -79,7 +84,8 @@ app.use('/cheflavor/menu', menu)
 //************************//
 //** staff portal paths **//
 //************************//
-
+app.use('/cheflavor/stafflogin', staffUserRoutes)
+app.use('/cheflavor/staffportal', staffRoutes)
 
 
 
