@@ -1,17 +1,18 @@
 import express from "express"
 import mongoose from "mongoose"
 import methodOverride from "method-override"
+import flash from "connect-flash"
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 import { ExpressError } from "./utilis/ExpressError.js"
 
 import { events } from "./paths/events.js"
 import { contactus } from "./paths/contactus.js"
 import { menu } from "./paths/menu.js"
-import { home } from "./paths/home.js"
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { User } from './models/user.js'
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -38,9 +39,36 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
 
+const sessionConfig = {
+    secret: 'oopsmysecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+}
+app.use(session(sessionConfig))
+app.use(flash());
+
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(new LocalStrategy(User.authenticate()))
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
 //********************//
 //** customer paths **//
-//********************//
+//********************//npm
 app.get('/cheflavor', (req, res) => {
     res.render('./index.ejs', { __dirname })
 })
