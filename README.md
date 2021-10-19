@@ -32,9 +32,12 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
 <ul>
     <li>ejs</li>
     <li>express</li>
+    <li>express session</li>
+    <li>joi</li>
     <li>method override</li>
     <li>mongo</li>
     <li>mongoose</li>
+    <li>passport</li>
 </ul>
 
 <h5>APIs Used</h5>
