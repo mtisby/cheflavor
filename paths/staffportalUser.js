@@ -15,10 +15,10 @@ router.post('/register', asyncWrap(async (req, res) => {
         const user = new User({ email, username });
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, error => {
-            if (err) {
-                return next(err)
+            if (error) {
+                return next(error)
             } else {
-                req.flash('success', 'Welcome to YelpCamp')
+                req.flash('success', 'Welcome to Cheflavor\'s Staff Portal')
                 res.redirect('/cheflavor/staffportal/home') 
             }
         })
@@ -36,16 +36,16 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login'}), (req, res) => {
-    req.flash('success', "Welcome Back!");
+    // req.flash('success', "Welcome Back!");
     console.log("Welcome Back!")
-    const redirectUrl = req.session.returnTo || '/cheflavor/staffportal/home';
-    delete req.session.returnTo;
-    res.redirect(redirectUrl)
+    // const redirectUrl = req.session.returnTo || '/cheflavor/staffportal/home';
+    // delete req.session.returnTo;
+    // res.redirect(redirectUrl)
+    res.redirect('/cheflavor/staffportal/home')
 })
 
 router.get('/logout', (req, res) => {
     req.logout();
-    req.flash('success', "Goodbye!");
     res.redirect('/cheflavor');
 })
 

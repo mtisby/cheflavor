@@ -20,6 +20,8 @@ import { staffRoutes } from "./paths/staffportalRoutes.js"
 import { User } from './models/user.js'
 
 
+import ejsMate from "ejs-mate"
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -36,6 +38,8 @@ db.once("open", () => {
 
 const app = express();
 const port = 3060;
+
+app.engine('ejs', ejsMate)
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))

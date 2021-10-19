@@ -1,110 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEFLAVOR</title>
+<% layout('./layouts/boilerplate')%>
+<main>
+    <div class = "banner2">
+        <h1>Schedule an Event with Us</h1>
+    </div>  
 
-    <!--bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!--fonts for header and footer-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200&family=Fira+Sans&family=Lato&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <!--style sheet-->
-    <link href="/css/chefFlavorHome.css" type="text/css" rel="stylesheet">
-    <link href="/css/navigation.css" type="text/css" rel="stylesheet">
-    <link href="/css/calendar.css" type="text/css" rel="stylesheet">
-
-    <!--fonts for body-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo&family=Noto+Sans+HK&family=Poppins:wght@500&family=Source+Sans+Pro&family=Titillium+Web&family=Ubuntu&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <main>
-        <header>
-            <div id="naviagtion">
-
-            </div>
-
-            <div class = "banner2">
-                <h1>Schedule an Event with Us</h1>
-            </div>  
-        </header>
-
-        <div class="events">
-            <div id="calendarContainer">
-
-            </div>
-
-            <dialog id="popUp" class="dialog">
-                <div class="cancel"><button id="cancel"><a href="/cheflavor/events">Cancel</a></button></div>
-                <form action="/cheflavor/events" method="POST" class="form">
-                    <div class="formDiv">
-                        <p><input type="text" name="dateSelected" id="dateSelected" class="form-control"></p>
-                        <!-- change this h1 to an input and autochange value -->
-                        <div>
-                            <label for="selectTime" class="form-label required">Please Select a Time</label>
-                            <select name="timeSelected" id="timeSelected" class="form-select">
-                                <option value="timeTen">10am</option>
-                                <option value="timeEleven">11am</option>
-                                <option value="timeNoon">12pm</option>
-                                <option value="timeOne">1pm</option>
-                                <option value="timeTwo">2pm</option>
-                                <option value="timeThree">3pm</option>
-                                <option value="timeFour">4pm</option>
-                                <option value="timeFive">5pm</option>
-                                <option value="timeSix">6pm</option>
-                                <option value="timeSeven">7pm</option>
-                                <option value="timeEight">8pm</option>
-                            </select>
-                        </div>
-                        <div class="contactInfo">
-                            <h2>contact info</h2>
-                            <div class="eventName input-group has-validation">
-                                <div><label for="firstName" class="form-label">First Name</label>
-                                <br><input type="text" placeholder="ex. Matt" id="firstName" name="firstName" class="form-control" required></div>
-                                <div><label for="lastName" class="form-label">Last Name</label>
-                                <br><input type="text" placeholder="ex. Green" id="lastName" name="lastName" class="form-control" required></div>
-                            </div>
-                            <div class="emailAndPhone">
-                                <div><label for="email" class="form-label">Email</label>
-                                <input type="text" id="email" placeholder="mattgreen123@gmail.com" name="email" class="form-control" required></div>
-                                <br>
-                                <div><label for="phoneNumber" class="form-label">Phone Number</label>
-                                <input type="tel" id="phoneNumber" placeholder="1234567890" name="phoneNumber" minlength="10" class="form-control" required></div>
-                            </div>
-                        </div>
-                        <menu>
-                            <button id="confirmBtn" value="default" type="submit">Confirm</button>
-                        </menu>
-                    </div>
-                </form>
-
-            </dialog>
+    <div class="events">
+        <div id="calendarContainer">
 
         </div>
-        <footer id="footer" class="footer">
-        
-        </footer>
-    </main>
 
-    <!--scripts-->
-    <script>
-        var eventObj = '<%- JSON.stringify(events) %>'; // test is now a valid js object
-      </script>
+        <dialog id="popUp" class="dialog">
+            <div class="cancel"><button id="cancel"><a href="/cheflavor/events">Cancel</a></button></div>
+            <form action="/cheflavor/events" method="POST" class="form">
+                <div class="formDiv">
+                    <p><input type="text" name="dateSelected" id="dateSelected" class="form-control"></p>
+                    <!-- change this h1 to an input and autochange value -->
+                    <div>
+                        <label for="selectTime" class="form-label required">Please Select a Time</label>
+                        <select name="timeSelected" id="timeSelected" class="form-select">
+                            <option value="timeTen">10am</option>
+                            <option value="timeEleven">11am</option>
+                            <option value="timeNoon">12pm</option>
+                            <option value="timeOne">1pm</option>
+                            <option value="timeTwo">2pm</option>
+                            <option value="timeThree">3pm</option>
+                            <option value="timeFour">4pm</option>
+                            <option value="timeFive">5pm</option>
+                            <option value="timeSix">6pm</option>
+                            <option value="timeSeven">7pm</option>
+                            <option value="timeEight">8pm</option>
+                        </select>
+                    </div>
+                    <div class="contactInfo">
+                        <h2>contact info</h2>
+                        <div class="eventName input-group has-validation">
+                            <div><label for="firstName" class="form-label">First Name</label>
+                            <br><input type="text" placeholder="ex. Matt" id="firstName" name="firstName" class="form-control" required></div>
+                            <div><label for="lastName" class="form-label">Last Name</label>
+                            <br><input type="text" placeholder="ex. Green" id="lastName" name="lastName" class="form-control" required></div>
+                        </div>
+                        <div class="emailAndPhone">
+                            <div><label for="email" class="form-label">Email</label>
+                            <input type="text" id="email" placeholder="mattgreen123@gmail.com" name="email" class="form-control" required></div>
+                            <br>
+                            <div><label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="tel" id="phoneNumber" placeholder="1234567890" name="phoneNumber" minlength="10" class="form-control" required></div>
+                        </div>
+                    </div>
+                    <menu>
+                        <button id="confirmBtn" value="default" type="submit">Confirm</button>
+                    </menu>
+                </div>
+            </form>
 
-    <script type="module" src="/scripts/cheFlavorCalendar.js"></script>
-    <script src="/scripts/navigation.js"></script>
-    <script src="/scripts/footer.js"></script>
-</body>
-</html>
+        </dialog>
+
+    </div>
+    <footer id="footer" class="footer">
+    
+    </footer>
+</main>
+
+<!--scripts-->
+<script>
+    var eventObj = '<%- JSON.stringify(events) %>'; // test is now a valid js object
+    </script>
+
+<script type="module" src="/scripts/cheFlavorCalendar.js"></script>

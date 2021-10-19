@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Portal</title>
-</head>
-<body>
-    <main>
-        <div class="eventsCalendar" id="eventsCalendar">
-            <iframe src="https://calendar.google.com/calendar/embed?src=c_89rs5vrd33uoh4nk3k9p01dqn0%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
+<% layout('./layouts/staffBoilerplate')%>
+<main>
+    <div class="eventsCalendar" id="eventsCalendar">
+        <iframe src="https://calendar.google.com/calendar/embed?src=c_89rs5vrd33uoh4nk3k9p01dqn0%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
 
-        <div class="upcomingEvents" id="upcomingEvents">
-            
-        </div>
-    </main>
-</body>
-</html>
+    <div class="upcomingEvents" id="upcomingEvents">
+        
+    </div>
+</main>
