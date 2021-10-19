@@ -41,7 +41,11 @@ router.post('/login', passport.authenticate('local', { failureFlash: true, failu
     // const redirectUrl = req.session.returnTo || '/cheflavor/staffportal/home';
     // delete req.session.returnTo;
     // res.redirect(redirectUrl)
-    res.redirect('/cheflavor/staffportal/home')
+    try {
+        res.redirect('/cheflavor/staffportal/home')
+    } catch (e) {
+        console.log(e)
+    }
 })
 
 router.get('/logout', (req, res) => {

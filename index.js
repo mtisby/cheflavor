@@ -47,6 +47,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
+app.use(flash());
 
 const sessionConfig = {
     secret: 'oopsmysecret',
@@ -109,50 +110,3 @@ app.listen(port, () => {
     console.log(`listening on : ${port}`)
 })
 
-
-/*old*/
-/*
-import { Menu } from "./models/menuitems.js"
-import { Feedback } from "./models/feedback.js"
-import { Event } from "./models/event.js"
-import { asyncWrap } from "./utilis/asyncWrap.js"
-import { eventSchema } from "./schemas/schemas.js";
-import { eventNames } from "process";
-*/
-
-
-// app.get('/cheflavor/contactus', (req, res) => {
-//     res.render('./contactus.ejs')
-// })
-
-// app.post('/cheflavor/contactus', asyncWrap(async (req, res) => {
-//     const feedback = new Feedback(req.body);
-//     await feedback.save()
-//     res.redirect('/cheflavor')
-// }))
-
-// app.get('/cheflavor/menu', asyncWrap(async (req, res) => {
-//     const menu = await Menu.find({});
-//     res.render('./menu.ejs', {menu, orderedCategories})
-// }))
-
-// app.get('/cheflavor/events', asyncWrap(async (req, res) => {
-//     const events = await Event.find({});
-//     res.render('./cheFlavorEvents.ejs', {events})
-// }))
-
-// app.post('/cheflavor/events', asyncWrap(async (req, res) => {
-//     const { error } = eventSchema.validate(req.body, {stripUnknown:true});
-//     if (error) {
-//         const msg = error.details.map(el => el.message).join(',')
-//         console.log(msg)
-//         throw new ExpressError(msg, 400)
-//     }
-//     const event = new Event(req.body);
-//     await event.save()
-//     res.redirect('/cheflavor/events/eventConfirmation')
-// }))
-
-// app.get('/cheflavor/events/eventConfirmation', (req, res) => {
-//     res.render('./eventConfirmation.ejs')
-// })
