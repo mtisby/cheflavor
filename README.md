@@ -23,9 +23,10 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
     <li>Express</li>
 </ul>
 
-<h5>Databases</h5>
+<h5>Cloud Storage & Databases</h5>
 <ul>
     <li>MongoDB</li>
+    <li>Cloudinary</li>
 </ul>
 
 <h5>Libraries Used</h5>
