@@ -8,18 +8,18 @@
 
         <div class="contactUsPage">
             <div class="feedbackDiv">
-                <form action="/cheflavor/contactus" method="POST">
+                <form action="/cheflavor/contactus" method="POST" class="form" novalidate>
                     <div class="feedbackName">
-                        <div><label for="cSFirstName">First Name</label>
-                        <br><input type="text" placeholder="ex. Matt" id="cSFirstName" class="form-control" required></div>
-                        <div><label for="cSLastName">Last Name</label>
-                        <br><input type="text" placeholder="ex. Green" id="cSLastName" class="form-control" required></div>
+                        <div><label for="firstName">First Name</label>
+                        <br><input type="text" placeholder="ex. Matt" id="firstName" class="form-control" name="firstName" required></div>
+                        <div><label for="lastName">Last Name</label>
+                        <br><input type="text" placeholder="ex. Green" id="lastName" class="form-control" name="lastName" required></div>
                     </div>
-                    <label for="cSEmail">Email</label>
-                    <input type="text" id="cSEmail" placeholder="mattgreen123@gmail.com" class="form-control" required>
-                    <label for="customerFeedback" class="customerFeedback">Have some feedback? Fill out our form!</label>
-                    <br><input type="text" id="customerFeedback" placeholder="write your feedback here" class="form-control" required>
-                    <br><button id="confirmBtn" value="default" type="submit">submit</button>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="mattgreen123@gmail.com" class="form-control" name="email"required>
+                    <label for="text" class="customerFeedback">Have some feedback? Fill out our form!</label>
+                    <br><input type="text" id="text" placeholder="write your feedback here" class="form-control" name="text" required>
+                    <br><button id="confirmBtn" value="default" type="submit" class="btn">submit</button>
                 </form>
             </div>
             <div class="contactInfo">

@@ -1,3 +1,9 @@
+import dotenv from "dotenv"
+
+if (process.env.NODE_ENV !== "productions") {
+    dotenv.config()
+}
+
 import express from "express"
 import mongoose from "mongoose"
 import methodOverride from "method-override"

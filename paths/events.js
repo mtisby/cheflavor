@@ -3,6 +3,7 @@ import { Event } from "../models/event.js"
 import { eventSchema } from "../schemas/schemas.js";
 import { asyncWrap } from "../utilis/asyncWrap.js"
 import { ExpressError } from "../utilis/ExpressError.js"
+import createDate from "../public/scripts/googleCalendar.cjs";
 
 
 var router = express.Router();
@@ -20,12 +21,13 @@ router.post('/', asyncWrap(async (req, res) => {
         throw new ExpressError(msg, 400)
     }
     const event = new Event(req.body);
+    createDate(event)
     await event.save()
-    res.redirect('/eventConfirmation')
+    res.redirect('/cheflavor/events/eventConfirmation')
 }))
 
 router.get('/eventConfirmation', (req, res) => {
-    res.render('./eventConfirmation.ejs')
+    res.render('eventConfirmation.ejs')
 })
 
 

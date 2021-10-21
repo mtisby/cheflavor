@@ -10,9 +10,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', asyncWrap(async (req, res) => {
+    console.log(req.body)
     const feedback = new Feedback(req.body);
+    // console.log(feedback)
     await feedback.save()
-    res.redirect('/cheflavor')
+    res.redirect('/cheflavor/')
 }))
 
 const contactus = router

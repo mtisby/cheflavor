@@ -50,7 +50,7 @@ router.post('/login', passport.authenticate('local', { failureFlash: true, failu
 
 router.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('/cheflavor');
+    res.redirect('/cheflavor/stafflogin/login');
 })
 
 const staffUserRoutes = router
