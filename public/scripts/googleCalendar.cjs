@@ -18,7 +18,6 @@ var API_KEY = CREDENTIALS.private_key;
 // included, separated by spaces.
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 
-
 // Load client secrets from a local file.
 fs.readFile('cheflavor-events-329718-b2d86c50c68c.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
@@ -42,9 +41,6 @@ function authorize(credentials, callback) {
     callback(oAuth2Client);
   });
 }
-
-
-
 
 // function createDate(eventTimes) {
 //   const calendar = google.calendar({version: 'v3', auth});
@@ -87,7 +83,6 @@ function authorize(credentials, callback) {
 //     }
 //     console.log('Event created: %s', event.htmlLink);
 //   });
-      
 // }
 
 // module.exports = createDate
