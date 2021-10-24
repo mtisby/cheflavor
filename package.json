@@ -27,7 +27,7 @@
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "googleapis": "^88.2.0",
+    "googleapis": "^39.2.0",
     "joi": "^17.4.2",
     "method-override": "^3.0.0",
     "mongo": "^0.1.0",

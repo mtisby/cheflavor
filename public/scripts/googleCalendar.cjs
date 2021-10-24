@@ -1,4 +1,6 @@
-const gapi = require("googleapis")
+const fs = require('fs');
+const readline = require('readline');
+const {google} = require('googleapis');
 require('dotenv').config(".env")
 
 
@@ -7,46 +9,42 @@ require('dotenv').config(".env")
 const CREDENTIALS = JSON.parse(process.env.CREDENTIALS);
 const calendarId = process.env.CALENDAR_ID;
 
+
 // Client ID and API key from the Developer Console
 var CLIENT_ID = CREDENTIALS.client_id;
 var API_KEY = CREDENTIALS.private_key;
 
-// Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+
+
+// Load client secrets from a local file.
+fs.readFile('cheflavor-events-329718-b2d86c50c68c.json', (err, content) => {
+  if (err) return console.log('Error loading client secret file:', err);
+  // Authorize a client with credentials, then call the Google Calendar API.
+  authorize(JSON.parse(content), listEvents);
+});
 
 /**
- *  On load, called to load the auth2 library and API client library.
+ * Create an OAuth2 client with the given credentials, and then execute the
+ * given callback function.
  */
-function handleClientLoad() {
-  gapi.load('client:auth2', initClient);
+function authorize(credentials, callback) {
+  const {client_secret, client_id, redirect_uris} = credentials.installed;
+  const oAuth2Client = new google.auth.OAuth2(
+      client_id, client_secret, redirect_uris[0]);
+
+  // Check if we have previously stored a token.
+  fs.readFile(TOKEN_PATH, (err, token) => {
+    if (err) return getAccessToken(oAuth2Client, callback);
+    oAuth2Client.setCredentials(JSON.parse(token));
+    callback(oAuth2Client);
+  });
 }
-
-/**
- *  Initializes the API client library and sets up sign-in state
- *  listeners.
- */
-function initClient() {
-  gapi.client.init({
-    apiKey: API_KEY,
-    clientId: CLIENT_ID,
-    discoveryDocs: DISCOVERY_DOCS,
-    scope: SCOPES
-  })
-}
-
-initClient()
-
-/**
- * Print the summary and start datetime/date of the next ten events in
- * the authorized user's calendar. If no events are found an
- * appropriate message is printed.
- */
 
 function createDate(eventTimes) {
+  const calendar = google.calendar({version: 'v3', auth});
   let day = eventTimes.dateSelected.slice(4, 7).trim()
   day = day.slice(0, day.length-1)
   let month = eventTimes.dateSelected.slice(0, 3)
@@ -75,14 +73,16 @@ function createDate(eventTimes) {
   };
 
   
-  // var request = gapi.client.calendar.events.insert({
-  //   'calendarId': calendarId,
-  //   'resource': event
-  // });
-
-
-  req.execute(function(event) {
-    appendPre('Event created: ' + event.htmlLink);
+  calendar.events.insert({
+    auth: auth,
+    calendarId: 'primary',
+    resource: event,
+  }, function(err, event) {
+    if (err) {
+      console.log('There was an error contacting the Calendar service: ' + err);
+      return;
+    }
+    console.log('Event created: %s', event.htmlLink);
   });
       
 }
