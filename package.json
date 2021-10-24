@@ -29,6 +29,7 @@
     "express-session": "^1.17.2",
     "googleapis": "^39.2.0",
     "joi": "^17.4.2",
+    "json-bigint": "^1.0.0",
     "method-override": "^3.0.0",
     "mongo": "^0.1.0",
     "mongoose": "^6.0.7",

@@ -43,48 +43,51 @@ function authorize(credentials, callback) {
   });
 }
 
-function createDate(eventTimes) {
-  const calendar = google.calendar({version: 'v3', auth});
-  let day = eventTimes.dateSelected.slice(4, 7).trim()
-  day = day.slice(0, day.length-1)
-  let month = eventTimes.dateSelected.slice(0, 3)
-  let year = eventTimes.dateSelected.slice(7, eventTimes.dateSelected.length)
-  let time = eventTimes.timeSelected
-  let date = `${day} ${month} ${year} ${time} UTC`
-  let eventDate = new Date(date).toISOString()
-  let endDate = `${day} ${month} ${year} ${parseInt(time) + 5} UTC`
-  let eventTime = new Date(endDate).toISOString()
 
-  var event = {
-    'summary': 'Catering Event',
-    'location': 'TBD',
-    'description': `Catering Event for ${eventTimes.firstName} ${eventTimes.lastName}`,
-    'start': {
-      'dateTime': eventDate,
-      'timeZone': 'America/Los_Angeles'
-    },
-    'end': {
-      'dateTime': eventTime,
-      'timeZone': 'America/Los_Angeles'
-    },
-    'attendees': [
-      {'email': eventTimes.email},
-    ]
-  };
+
+
+// function createDate(eventTimes) {
+//   const calendar = google.calendar({version: 'v3', auth});
+//   let day = eventTimes.dateSelected.slice(4, 7).trim()
+//   day = day.slice(0, day.length-1)
+//   let month = eventTimes.dateSelected.slice(0, 3)
+//   let year = eventTimes.dateSelected.slice(7, eventTimes.dateSelected.length)
+//   let time = eventTimes.timeSelected
+//   let date = `${day} ${month} ${year} ${time} UTC`
+//   let eventDate = new Date(date).toISOString()
+//   let endDate = `${day} ${month} ${year} ${parseInt(time) + 5} UTC`
+//   let eventTime = new Date(endDate).toISOString()
+
+//   var event = {
+//     'summary': 'Catering Event',
+//     'location': 'TBD',
+//     'description': `Catering Event for ${eventTimes.firstName} ${eventTimes.lastName}`,
+//     'start': {
+//       'dateTime': eventDate,
+//       'timeZone': 'America/Los_Angeles'
+//     },
+//     'end': {
+//       'dateTime': eventTime,
+//       'timeZone': 'America/Los_Angeles'
+//     },
+//     'attendees': [
+//       {'email': eventTimes.email},
+//     ]
+//   };
 
   
-  calendar.events.insert({
-    auth: auth,
-    calendarId: 'primary',
-    resource: event,
-  }, function(err, event) {
-    if (err) {
-      console.log('There was an error contacting the Calendar service: ' + err);
-      return;
-    }
-    console.log('Event created: %s', event.htmlLink);
-  });
+//   calendar.events.insert({
+//     auth: auth,
+//     calendarId: 'primary',
+//     resource: event,
+//   }, function(err, event) {
+//     if (err) {
+//       console.log('There was an error contacting the Calendar service: ' + err);
+//       return;
+//     }
+//     console.log('Event created: %s', event.htmlLink);
+//   });
       
-}
+// }
 
-module.exports = createDate
+// module.exports = createDate
