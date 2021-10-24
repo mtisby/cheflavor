@@ -9,8 +9,8 @@
 7. [x] create and event script which looks through the events and blocks out dates that have already been requested
 8. [x] implement google calendar api
 9. [x] create images for staff portal
-10. [] add authorization for staff portal
+10. [x] add authorization for staff portal
 11. [] style staff portal 
 12. [] style all forms
-13. [] implement staff portal logic
+13. [x] implement staff portal logic
 14. [x] clean up routes
