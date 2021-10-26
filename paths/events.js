@@ -21,7 +21,7 @@ router.post('/', asyncWrap(async (req, res) => {
         throw new ExpressError(msg, 400)
     }
     const event = new Event(req.body);
-    createDate(event)
+    await createDate(event)
     await event.save()
     res.redirect('/cheflavor/events/eventConfirmation')
 }))
