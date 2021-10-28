@@ -10,22 +10,27 @@
     <div class="menu flexCol" id="menu">
         <% for (var category of orderedCategories) {%>
             <div class="menuSectionDiv">
-                <h1 class="menuHeader"><%=category%></h1>
-                <div class="flexRow">
-                    <% for (var item of menu) {%>
-                        <input type="text" name="objectId" id="objectId" value="<%=item.id%>">
-                        <%if (item.category === category) {%>
-                            <div class="menuItemDiv border flexCol">
-                                <% if (item.img != '') {%>
-                                    <img src=<%= item.img %> class="squarePicture">
-                                <% }%>
-                                <h1 class="menuItemTitle"><%= item.title %></h1>
-                                <p><%= item.description %></p>
-                                <p><%= item.price %></p>
-                            </div>
+                <form action="">
+                    <form action="">Temporarily Unavailable</form>
+                    <form action="">Delete</form>
+                    <input class="menuHeader" type="text" value=<%=category%>></input>
+                    <div class="flexRow">
+                        <% for (var item of menu) {%>
+                            <%if (item.category === category) {%>
+                                <div class="menuItemDiv border flexCol">
+                                    <% if (item.img != '') {%>
+                                        <img src=<%= item.img %> class="squarePicture">
+                                    <% }%>
+
+                                    <input class="menuItemTitle" type="text" value=<%= item.title %>></input>
+                                    <input class="description" type="text" value=<%= item.description %>></input>
+                                    <input class="price" type="text" value=<%= item.price %>></input>
+                                </div>
+                            <%}%>
                         <%}%>
-                    <%}%>
-                </div>
+                    </div>
+                    <button>Submit</button>
+                </form>
             </div>
         <%}%>
     </div>
