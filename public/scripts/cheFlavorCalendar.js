@@ -15,7 +15,7 @@ let year = today.slice(11, 16);
 
 const debugging = true;
 
-// imported from database
+// import from ejs file
 const confirmedEvents = JSON.parse(eventObj);
 
 // select div container that will contain all displayed calendars

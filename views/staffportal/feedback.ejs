@@ -1,8 +1,19 @@
 <% layout('./layouts/staffBoilerplate')%>
 <main>
-    <div class="sort"></div>
+    <div class="sort">
+        <form action="">
+            <input type="search">
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
-    <div class="feedback">
+    <div class="feedback" id="feeback">
+
         
     </div>
+
+    <script>
+        var feedbackObj = '<%- JSON.stringify(feedback) %>'; // test is now a valid js object
+    </script>
+    <script type="module" src="/scripts/feedback.js"></script>
 </main>

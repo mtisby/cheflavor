@@ -8,16 +8,16 @@
 
         <div class="contactUsPage">
             <div class="feedbackDiv">
-                <form action="/cheflavor/contactus" method="POST" class="form" novalidate>
+                <form action="/cheflavor/contactus" method="POST" class="form">
                     <div class="feedbackName">
-                        <div><label for="firstName">First Name</label>
+                        <div><label for="firstName" class="form-label">First Name</label>
                         <br><input type="text" placeholder="ex. Matt" id="firstName" class="form-control" name="firstName" required></div>
-                        <div><label for="lastName">Last Name</label>
+                        <div><label for="lastName" class="form-label">Last Name</label>
                         <br><input type="text" placeholder="ex. Green" id="lastName" class="form-control" name="lastName" required></div>
                     </div>
-                    <label for="email">Email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="text" id="email" placeholder="mattgreen123@gmail.com" class="form-control" name="email"required>
-                    <label for="text" class="customerFeedback">Have some feedback? Fill out our form!</label>
+                    <label for="text" class="customerFeedback form-label">Have some feedback? Fill out our form!</label>
                     <br><input type="text" id="text" placeholder="write your feedback here" class="form-control" name="text" required>
                     <br><button id="confirmBtn" value="default" type="submit" class="btn">submit</button>
                 </form>
@@ -33,6 +33,4 @@
         
         </footer>
     </main>
-
-    <!--scripts-->
     <script src="/scripts/cheFlavorCalendar.js"></script>

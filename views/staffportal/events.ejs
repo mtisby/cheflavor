@@ -6,6 +6,12 @@
 
     <div class="divRight">
         <h1>Upcoming Events</h1>
-        <div class="upcomingEvents" id="upcomingEvents"></div>
+        <div class="upcomingEvents" id="upcomingEvents">
+        </div>
     </div>
+
+    <script>
+        var eventsObj = '<%- JSON.stringify(events) %>'; // test is now a valid js object
+    </script>
+    <script type="module" src="/scripts/events.js"></script>
 </main>
