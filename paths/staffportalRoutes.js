@@ -9,7 +9,7 @@ router.get('/home', isLoggedIn, (req, res) => {
 })
 
 router.get('/menu', isLoggedIn, (req, res) => { 
-    res.render("staffportal/editmenu.ejs")
+    res.render("staffportal/editmenuhome.ejs")
 })
 
 router.get('/events', isLoggedIn, (req, res) => { 

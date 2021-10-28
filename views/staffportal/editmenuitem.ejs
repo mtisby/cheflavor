@@ -1,0 +1,38 @@
+<% layout('./layouts/staffBoilerplate')%>
+<div class="">
+    <form action="" novalidate class="validated-form" method="post" enctype="multipart/form-data">
+        <input type="search" name="searchbar" id="searchbar">
+        <button type="submit">search</button>
+    </form>
+</div>
+
+<div>
+    <div class="menu flexCol" id="menu">
+        <% for (var category of orderedCategories) {%>
+            <!-- if click on one item redirect to page on its own -->
+            <form action="" method="post">
+                <div class="menuSectionDiv">
+                    <h1 class="menuHeader"><%=category%></h1>
+                    <div class="flexRow">
+                        <% for (var item of menu) {%>
+                            <input type="text" name="objectId" id="objectId" value="<%=item.id%>">
+                            <%if (item.category === category) {%>
+                                <div class="menuItemDiv border flexCol">
+                                    <% if (item.img != '') {%>
+                                        <img src=<%= item.img %> class="squarePicture">
+                                    <% }%>
+                                    <h1 class="menuItemTitle"><%= item.title %></h1>
+                                    <p><%= item.description %></p>
+                                    <p><%= item.price %></p>
+                                </div>
+                            <%}%>
+                        <%}%>
+                    </div>
+                </div>
+                <button type="submit">edit</button>
+            </form>
+        <%}%>
+    </div>
+</div>
+
+<link href="/css/menu.css" type="text/css" rel="stylesheet">

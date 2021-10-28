@@ -1,0 +1,19 @@
+<% layout('./layouts/staffBoilerplate')%>
+<div class="">
+    <form action="" novalidate class="validated-form" method="post" enctype="multipart/form-data">
+        <div class="form-file custom-file">
+            <input type="file" class="form-file-input" id="image" name="image" multiple>
+            <label class="form-file-label" for="image">
+                <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                <span class="form-file-button">Browse</span>
+            </label>
+        </div>
+
+        <label for="title">Add a Title</label>
+        <input type="text" id="title" placeholder="title">
+        <label for="descrtiption">Add a Descrtiption</label>
+        <input type="text" id="descrtiption" placeholder="descrtiption">
+        <label for="price">Add a Price</label>
+        <input type="number" id="price" placeholder="price" min="1.00">
+    </form>
+</div>
