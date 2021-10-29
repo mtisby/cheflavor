@@ -1,0 +1,38 @@
+<% layout('./layouts/staffBoilerplate')%>
+<div class="">
+    <form action="/cheflavor/staffportal/menu/add/?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-file custom-file">
+            <input type="file" class="form-file-input" id="image" name="image">
+            <label class="form-file-label" for="image">
+                <span class="form-file-text custom-file-label">Add An Image</span>
+                <span class="form-file-button">Browse</span>
+            </label>
+        </div>
+
+        <div>
+            <label for="menu[title]" class="form-label">Please Add a Title</label>
+            <input class="menuItemTitle" class="form-control" type="text" name="title" id="menu[title]" placeholder="Steak Salad" required></input>
+        </div>
+
+        <div>
+            <label for="menu[description]" class="form-label">Please Add a Description</label>
+            <textarea class="description" class="form-control" type="text" name="description" id="menu[description]"></textarea>
+        </div>
+        
+        <div>
+            <label for="menu[price]" class="form-label">Please Add a Price</label>
+            <input class="price" class="form-control" type="number" min="1" step=".5" name="price" id="menu[price]" required></input>
+        </div>
+        
+        <label for="category" class="form-label">Please Select a Category</label>
+        <select name="category" id="category" class="form-select" required>
+            <option value="salads">salads</option>
+            <option value="flatbreads">flatbreads</option>
+            <option value="appetizers">appetizers</option>
+            <option value="sandwiches">sandwiches</option>
+            <option value="burgers">burgers</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>

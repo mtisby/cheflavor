@@ -14,10 +14,16 @@ const seedDB = async () => {
     await Menu.deleteMany({});
 
     for (var items of menuitems) {
-        const item = new Menu(
-            items
-        )
+        // console.log(items)
+        const item = new Menu({
+            title: items.title,
+            img: items.img,
+            description: items.description,
+            price: items.price,
+            category: items.category
+        })
         await item.save()
+        console.log(item)
     }
 }
 

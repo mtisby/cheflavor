@@ -1,0 +1,59 @@
+<% layout('./layouts/staffBoilerplate')%>
+<div class="">
+    <form action="" novalidate class="validated-form" method="post" enctype="multipart/form-data">
+        <input type="search" name="searchbar" id="searchbar">
+        <button type="submit">search</button>
+    </form>
+</div>
+
+<div>
+    <div class="menu flexCol" id="menu">
+        <% for (var category of orderedCategories) {%>
+            <div class="menuSectionDiv">
+                
+                    <h1><%=category%></h1>
+                    <div class="flexRow">
+                        <% for (var item of menu) {%>
+                            <%if (item.category === category) {%>
+                                <div class="menuItemDiv border flexCol">
+                                    <!-- <form action=""><button>Temporarily Unavailable</button></form>
+                                    <form action=""><button>Delete</button></form> -->
+                                    <!-- enctype="multipart/form-data" -->
+                                    <form action="/cheflavor/staffportal/menu/edit/?_method=PUT" method="POST" enctype="multipart/form-data">
+                                        <% if (item.img != '') {%>
+                                            <img src=<%= item.img %> class="squarePicture">
+                                            <div class="form-check-inline">
+                                                <input type="checkbox" id="itemImage" name="deleteImages[]" value="<%=item.img%>">
+                                            </div>
+                                            <label for="itemImage">Delete Image</label>
+                                        <% }%>
+                                        <div class="form-file custom-file">
+                                            <input type="file" class="form-file-input" id="image" name="image">
+                                            <label class="form-file-label" for="image">
+                                                <span class="form-file-text custom-file-label">Add Another Image</span>
+                                                <span class="form-file-button">Browse</span>
+                                            </label>
+                                        </div>
+
+                                        <input class="menuItemTitle" type="text" name="title" id="menu[title]" value="<%= item.title %>" required></input>
+
+                                        <textarea class="description" type="text" name="description" id="menu[description]" required><%= item.description %></textarea>
+                                        
+                                        <input class="price" type="text" name="price" id="menu[price]" value="<%= item.price %>" required></input>
+                                        
+                                        <input class="id" type="text"  name="id" id="itemId" value="<%= item.id %>" hidden required></input>
+                                        
+                                        
+                                        <button type="submit">Submit</button>
+                                    </form>
+                                </div>
+                            <%}%>
+                        <%}%>
+                    </div>
+            
+            </div>
+        <%}%>
+    </div>
+</div>
+
+<link href="/css/menu.css" type="text/css" rel="stylesheet">
