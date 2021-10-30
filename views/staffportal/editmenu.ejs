@@ -12,7 +12,11 @@
                                 <div data-page="staff" class="menuItemDiv border flexCol available">
                                     <div class="hidden" id="itemUnavailableDiv<%=num%>"></div>
                                     <div hidden><%=num ++%></div>
-                                    <button id="toggleAvailability">Temporarily Unavailable</button>
+                                    <form action="/cheflavor/staffportal/menu/edit/available/" method="post">
+                                        <input type="text" name="itemId" id="itemId" value="<%=item.id%>" hidden>
+                                        <input type="text" name="availabilityId" id="availabilityId" value="available" hidden>
+                                        <button id="toggleAvailability" type="submit">Temporarily Unavailable</button>
+                                    </form>
                                     <form action="/cheflavor/staffportal/menu/edit/<%=item.id%>?_method=DELETE" method="POST">
                                         <input type="text" name="itemId" id="itemId" value="<%=item.id%>" hidden>
                                         <button class="btn btn-danger">Delete</button>

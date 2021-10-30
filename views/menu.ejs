@@ -11,7 +11,7 @@
                     <% for (var item of menu) {%>
                         
                         <%if (item.category === category) {%>
-                            <div id="menuItem<%=num%>" class="menuItemDiv border flexCol availabile">
+                            <div id="menuItem<%=item.id%>" class="menuItemDiv border flexCol availabile">
                             <div class="hidden"></div>
                             <% if (item.img != '') {%>
                                 <img src=<%= item.img %> class="squarePicture">
@@ -29,5 +29,8 @@
 
     <div class="pdfVersion" id="pdfVersion">
     </div>
+
+    <!-- *** TBD: for making menu items temporarily unavailable*** -->
+    <!-- <script src="/scripts/menuAvailabilityCustomer.js"></script> -->
 </main>
 

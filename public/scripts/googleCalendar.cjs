@@ -32,11 +32,10 @@ function createDate(eventTimes) {
   
     //`${day} ${month} ${year} ${time} UTC`
     //`${day} ${month} ${year} ${time} UTC`
-  let eventDate = new Date(year, month-1, day, time)
-  console.log(eventDate)
-  console.log(typeof eventDate)
+  let eventDate = new Date(year, month, day, time)
+
     //.toISOString()
-  let eventTime = new Date(year, month-1, day, time+5)
+  let eventTime = new Date(year, month, day, time+5)
     //.toISOString()
   // console.log(eventTime)
   // console.log(typeof eventTime)
