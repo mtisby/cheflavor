@@ -9,6 +9,8 @@ import { Menu } from "../models/menuitems.js"
 import cloudinary from "../cloudinary/index.cjs"
 import { changeAvailability } from "../public/scripts/menuAvailabilityCustomer.js";
 
+let check = null;
+
 const orderedCategories = ['salads', 'flatbreads', 'appetizers', 'sandwiches', 'burgers'];
 
 const upload = multer({ storage });
@@ -44,16 +46,15 @@ router.put('/menu/edit/', isLoggedIn, upload.single('image'), async (req, res) =
     res.redirect(`/cheflavor/staffportal/home`)
 })
 
-/* *** TBD: for making menu items temporarily unavailable***
+/* *** TBD: for making menu items temporarily unavailable*** */
 
-router.post('/menu/edit/available/', isLoggedIn, async (req, res) => {
-    const itemId = req.body.itemId;
-    const availabilityId = req.body.availabilityId;
-    changeAvailability(itemId, availabilityId)
-    res.send('yurp')
-})
+// router.post('/menu/edit/available/', isLoggedIn, async (req, res) => {
+//     const itemId = req.body.itemId;
+//     const availabilityId = req.body.availabilityId;
+//     changeAvailability(itemId, availabilityId)
+//     res.send('yurp')
+// })
 
-*/
 
 router.put('/menu/add/', isLoggedIn, upload.single('image'), async (req, res) => {
     const menu = new Menu(req.body);
