@@ -52,6 +52,13 @@ router.put('/menu/add/', isLoggedIn, upload.single('image'), async (req, res) =>
     
 })
 
+router.delete('/menu/edit/:id', isLoggedIn, upload.single('image'), async (req, res) => {
+    const id = req.body.itemId;
+    await Menu.findByIdAndDelete(id)
+    req.flash('success', 'Successfully deleted campground')
+    res.redirect(`/cheflavor/staffportal/home`)
+})
+
 router.get('/menu/add', isLoggedIn, (req, res) => { 
     res.render("staffportal/addmenu.ejs")
 })

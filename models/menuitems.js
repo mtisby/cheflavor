@@ -19,6 +19,9 @@ const MenuSchema = new Schema({
     }
 })
 
+MenuSchema.post('findOneAndDelete', async function (doc) {
+})
+
 const Menu = mongoose.model('Menu', MenuSchema);
 
 export { Menu }

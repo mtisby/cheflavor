@@ -197,7 +197,7 @@ for (var x = 0; x < monthsToShow; x++) {
     const header = document.createElement('h1');
     
     if (x === yearInd) {
-        year = year + 1;
+        year = parseInt(year) + 1;
     }
         
     header.innerText = `${monthsToDisplay[x]} ${year}`;

@@ -7,16 +7,18 @@
             <div class="menuSectionDiv">
                 <h1 class="menuHeader"><%=category%></h1>
                 <div class="flexRow">
+                    <% var num=0%>
                     <% for (var item of menu) {%>
                         
                         <%if (item.category === category) {%>
-                            <div class="menuItemDiv border flexCol">
-                                <% if (item.img != '') {%>
-                                    <img src=<%= item.img %> class="squarePicture">
-                                <% }%>
-                                <h1 class="menuItemTitle"><%= item.title %></h1>
-                                <p><%= item.description %></p>
-                                <p><%= item.price %></p>
+                            <div id="menuItem<%=num%>" class="menuItemDiv border flexCol availabile">
+                            <div class="hidden"></div>
+                            <% if (item.img != '') {%>
+                                <img src=<%= item.img %> class="squarePicture">
+                            <% }%>
+                            <h1 class="menuItemTitle"><%= item.title %></h1>
+                            <p><%= item.description %></p>
+                            <p><%= item.price %></p>
                             </div>
                         <%}%>
                     <%}%>
@@ -28,3 +30,4 @@
     <div class="pdfVersion" id="pdfVersion">
     </div>
 </main>
+

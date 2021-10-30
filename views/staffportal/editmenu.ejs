@@ -1,11 +1,4 @@
 <% layout('./layouts/staffBoilerplate')%>
-<div class="">
-    <form action="" novalidate class="validated-form" method="post" enctype="multipart/form-data">
-        <input type="search" name="searchbar" id="searchbar">
-        <button type="submit">search</button>
-    </form>
-</div>
-
 <div>
     <div class="menu flexCol" id="menu">
         <% for (var category of orderedCategories) {%>
@@ -13,15 +6,20 @@
                 
                     <h1><%=category%></h1>
                     <div class="flexRow">
+                        <% var num = 0%>
                         <% for (var item of menu) {%>
                             <%if (item.category === category) {%>
-                                <div class="menuItemDiv border flexCol">
-                                    <!-- <form action=""><button>Temporarily Unavailable</button></form>
-                                    <form action=""><button>Delete</button></form> -->
-                                    <!-- enctype="multipart/form-data" -->
+                                <div data-page="staff" class="menuItemDiv border flexCol available">
+                                    <div class="hidden" id="itemUnavailableDiv<%=num%>"></div>
+                                    <div hidden><%=num ++%></div>
+                                    <button id="toggleAvailability">Temporarily Unavailable</button>
+                                    <form action="/cheflavor/staffportal/menu/edit/<%=item.id%>?_method=DELETE" method="POST">
+                                        <input type="text" name="itemId" id="itemId" value="<%=item.id%>" hidden>
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form> 
                                     <form action="/cheflavor/staffportal/menu/edit/?_method=PUT" method="POST" enctype="multipart/form-data">
                                         <% if (item.img != '') {%>
-                                            <img src=<%= item.img %> class="squarePicture">
+                                            <img src=<%= item.img %> class="squarePicture availabile" id="menuImg">
                                             <div class="form-check-inline">
                                                 <input type="checkbox" id="itemImage" name="deleteImages[]" value="<%=item.img%>">
                                             </div>
@@ -57,3 +55,4 @@
 </div>
 
 <link href="/css/menu.css" type="text/css" rel="stylesheet">
+<script src="/scripts/menuAvailability.js"></script>

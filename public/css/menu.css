@@ -2,6 +2,17 @@ h1{
     text-align: center;
 }
 
+.itemUnavailableClassDiv{
+    width: 20em;
+    margin: 2em;
+    z-index: 2;
+    background-color: rgba(128, 128, 128, 0.50);
+}
+
+.hidden{
+    display: none;
+}
+
 .menuSectionDiv {
     width: 90vw;
     margin: 2em;
@@ -58,4 +69,12 @@ h1{
 /* interactive */
 .menuItemDiv:hover{
     box-shadow: 0 0 50px rgba(128, 128, 128, 0.50);
+}
+
+.available{
+    color: black;
+}
+
+.unavailable{
+    color: red;
 }
