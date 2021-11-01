@@ -28,7 +28,9 @@ for (var i = 0; i < eventsToDisplay; i++) {
     const currentObj = datesObj[sorted[i]]
 
     const eventDiv = document.createElement('div');
-    const header = document.createElement('h1');
+    eventDiv.classList.add('eventDiv')
+    const header = document.createElement('h3');
+    header.classList.add('eventDateHeader')
     header.innerHTML = currentObj.dateSelected;
     const p = document.createElement('p');
     p.innerHTML = `event with ${currentObj.firstName} ${currentObj.lastName} starting at ${currentObj.timeSelected}`

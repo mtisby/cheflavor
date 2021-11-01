@@ -1,0 +1,119 @@
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flexRowWrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* staff portal home */
+.feedbackDivRight{
+    margin-top: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid black;
+    padding: .5em;
+}
+
+
+/* staff portal menu */
+.mainWidth{
+    width: 60vw;
+    margin: auto;
+}
+
+
+/* feedback */
+.customerInfo{
+    font-size: .75em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.feedback h1{
+    font-size: 1.5em;
+}
+
+.feedbackDiv{
+    border: 1px solid black;
+    margin: 1em;
+}
+
+.feedbackDiv-feedbackPage{
+    border: 1px solid grey;
+    margin: 2em;
+    width: 20em;
+    padding: 0 1em;
+}
+
+.mainFeedbackDiv-feedbackpage{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* events */
+.events{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.upcomingEventsh1{
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-left: 1.5em;
+}
+
+.eventDateHeader{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.eventDiv{
+    width: 18em;
+    margin: 1.5em;
+    border: 1px solid black;
+}
+
+/* menu home */
+.menuHome{
+    margin-top: 2em;
+}
+
+.menuItemDiv {
+    width: 20em;
+    margin: 2em;
+    margin-top: 0;
+    font-size: 1em;
+    text-align: center;
+
+    transition: all 1.25s;
+}
+
+.menuHomeTitle{
+    margin: 1.5em;
+}
+
+.menuHomeTitle h1{
+    font-weight: bold;
+}
+
+/* interactive */
+.menuItemDiv:hover{
+    box-shadow: 0 0 50px rgba(73, 73, 73, 0.5);
+}

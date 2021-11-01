@@ -310,7 +310,7 @@ contact us page
     margin-top: 0;
 }
 
-form button{
+.confirmBtn{
     margin: 1em;
     width: 7em;
     color: white;

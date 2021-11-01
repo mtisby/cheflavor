@@ -116,7 +116,7 @@ td{
 
 .dialog button{
     margin: .25em 1em;
-    margin-top: .75em;
+    margin-top: 1.75em;
 
     background-color: var(--todayColor);
     border: 0px solid var(--todayColor);
@@ -160,18 +160,15 @@ td{
     margin-bottom: .25em;
 }
 
-.emailAndPhone input{
-    width: 15em;
-}
-
 .contactInfo label{
     margin: 0;
 }
 
 .emailAndPhone{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 1.5em;
 }
 
