@@ -14,4 +14,4 @@
 12. [] style all forms
 13. [x] implement staff portal logic
 14. [x] clean up routes
-15. [] implement cloudinary storage
+15. [x] implement cloudinary storage

@@ -56,6 +56,9 @@ router.put('/menu/edit/', isLoggedIn, upload.single('image'), async (req, res) =
 //     res.send('yurp')
 // })
 
+router.get('/menu/add', isLoggedIn, (req, res) => { 
+    res.render("staffportal/addmenu.ejs")
+})
 
 router.put('/menu/add/', isLoggedIn, upload.single('image'), async (req, res) => {
     const menu = new Menu(req.body);
@@ -71,10 +74,6 @@ router.delete('/menu/edit/:id', isLoggedIn, upload.single('image'), async (req, 
     await Menu.findByIdAndDelete(id)
     req.flash('success', 'Successfully deleted menu item')
     res.redirect(`/cheflavor/staffportal/home`)
-})
-
-router.get('/menu/add', isLoggedIn, (req, res) => { 
-    res.render("staffportal/addmenu.ejs")
 })
 
 router.get('/events', isLoggedIn, asyncWrap (async(req, res) => {
