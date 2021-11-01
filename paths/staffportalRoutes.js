@@ -17,8 +17,9 @@ const upload = multer({ storage });
 
 const router = express.Router()
 
-router.get('/home', isLoggedIn, (req, res) => {
-    res.render("staffportal/home.ejs")
+router.get('/home', isLoggedIn, async (req, res) => {
+    const feedback = await Feedback.find({});
+    res.render("staffportal/home.ejs", {feedback})
 })
 
 router.get('/menu', isLoggedIn, (req, res) => { 
@@ -68,7 +69,7 @@ router.put('/menu/add/', isLoggedIn, upload.single('image'), async (req, res) =>
 router.delete('/menu/edit/:id', isLoggedIn, upload.single('image'), async (req, res) => {
     const id = req.body.itemId;
     await Menu.findByIdAndDelete(id)
-    req.flash('success', 'Successfully deleted campground')
+    req.flash('success', 'Successfully deleted menu item')
     res.redirect(`/cheflavor/staffportal/home`)
 })
 
@@ -84,6 +85,26 @@ router.get('/events', isLoggedIn, asyncWrap (async(req, res) => {
 router.get('/feedback', isLoggedIn, asyncWrap(async (req, res) => {
     const feedback = await Feedback.find({});
     res.render("staffportal/feedback.ejs", {feedback})
+}))
+
+router.post('/feedback/search', isLoggedIn, asyncWrap(async (req, res) => {
+    const searchReq = req.body.mySearch;
+    const result1 = await Feedback.find({ 'firstName': { $regex: searchReq, $options: 'i' } } )
+    const result2 = await Feedback.find({ 'lastName':{ $regex: searchReq, $options: 'i' } })
+    const result3 = await Feedback.find({ 'email':{ $regex: searchReq, $options: 'i' } })
+    const result4 = await Feedback.find({ 'text':{ $regex: searchReq, $options: 'i' } })
+    
+    console.log(`result ${result1} !!!!!!!!!!!!`)
+    const results = [result1, result2, result3, result4];
+    let feedback = []
+    for (var i = 0; i < results.length; i++) {
+        if (results[0][i] != undefined) {
+            feedback.push(results[0][i])
+        }
+    }
+
+    res.render("staffportal/feedback.ejs", {feedback})
+    
 }))
 
 const staffRoutes = router

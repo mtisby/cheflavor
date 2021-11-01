@@ -1,9 +1,11 @@
 <% layout('./layouts/staffBoilerplate')%>
 <main>
     <div class="sort">
-        <form action="">
-            <input type="search" id="mySearch" name="mySearch">
-            <button type="submit">Search</button>
+        <form action="/cheflavor/staffportal/feedback/search" method="post">
+            <div>
+                <input type="search" id="mySearch" name="mySearch" class="form-control" required>
+                <button type="submit">Search</button>
+            </div>
         </form>
     </div>
 
