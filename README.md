@@ -7,10 +7,14 @@ On the customer user side, the app showcases the restaurants atmosphere, menu, a
 This web app was created using the JavaScript framework Express. The restaurants data
 like the menu, event schedule, and customer feedback is stored in a MongoDB database.
     
- Check out the fully deployed web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
+ Check out the fully deployed customer view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
+
+<bold>Important!</bold> to view the staffportal, please login with the user: 123 and pass: 123; If you are using chrome, this prevents the user and pass from being autosaved to your device.
+
+ Check out the fully deployed staff view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
 </p>
 
-<h3>Tools Used</h3>
+<h2>Tools Used</h2>
 
 <h5>Languages Used</h5>
 <ul>
