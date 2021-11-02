@@ -1,6 +1,9 @@
 import mongoose from "mongoose"
 import { Menu } from "../../models/menuitems.js";
 import { menuitems } from "./startingmenu.js"
+import dotenv from "dotenv"
+
+dotenv.config({ path: ".env" })
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cheflavor';
 mongoose.connect(dbUrl);
