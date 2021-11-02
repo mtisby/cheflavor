@@ -1,7 +1,14 @@
-const fs = require('fs');
-const readline = require('readline');
-const { google } = require('googleapis');
-require('dotenv').config({ path: "./.env" })
+// const fs = require('fs');
+// const readline = require('readline');
+// const { google } = require('googleapis');
+// require('dotenv').config({ path: "./.env" })
+
+import fs from 'fs'
+import readline from 'readline'
+import { google } from 'googleapis';
+import dotenv from "dotenv"
+
+dotenv.config({ path: ".env" })
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
