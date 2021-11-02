@@ -50,7 +50,7 @@ db.once("open", () => {
 });
 
 const app = express();
-const port = 3060;
+const port = process.env.PORT || 3060;
 
 app.engine('ejs', ejsMate)
 
