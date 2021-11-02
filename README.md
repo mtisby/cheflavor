@@ -1,12 +1,13 @@
 <h1><img src="./public/images/logo.png" width="45px"> Cheflavor</h1>
 
 <p>This project is a web app created for a close friend's restaurant, Cheflavor.
-It showcases the restaurants atmosphere, menu, allows for customer feedback, and allows customers to schedule catering for their events.
+On the customer user side, the app showcases the restaurants atmosphere, menu, allows for customer feedback, and allows customers to schedule catering for their events. On the staff user side, the app takes all scheduled events and adds them the Cheflavor Google Calendar, displays customer feedback, and allows users to edit the menu.
 
-Soon to come, on the restaurant owner's side, it allows them to access customer feedback, allows them to add and remove items from the menu.
 
 This web app was created using the JavaScript framework Express. The restaurants data
 like the menu, event schedule, and customer feedback is stored in a MongoDB database.
+    
+ Check out the fully deployed web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
 </p>
 
 <h3>Tools Used</h3>
