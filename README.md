@@ -9,7 +9,7 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
     
  Check out the fully deployed customer view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
 
-<b style="color:red">Important!</b> to view the staffportal, please login with the user: 123 and pass: 123; If you are using chrome, this prevents the user and pass from being autosaved to your device.
+<b style="color:red;">Important!</b> to view the staffportal, please login with the user: 123 and pass: 123; If you are using chrome, this prevents the user and pass from being autosaved to your device.
 
  Check out the fully deployed staff view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
 </p>
