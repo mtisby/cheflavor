@@ -34,7 +34,7 @@ import ejsMate from "ejs-mate"
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const dbUrl = 'mongodb://localhost:27017/cheflavor';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cheflavor';
     //process.env.DB_URL
     //'mongodb://localhost:27017/cheflavor';
 
@@ -65,17 +65,19 @@ app.use(mongoSanitize({
     replaceWith: "_"
 }))
 
+const secret = process.env.SECRET
+
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'yummy'
+        secret
     }
 });
 
 const sessionConfig = {
     store,
-    secret: 'oopsmysecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {

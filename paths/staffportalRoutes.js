@@ -7,7 +7,7 @@ import multer from "multer"
 import { storage } from "../cloudinary/index.cjs"
 import { Menu } from "../models/menuitems.js"
 import cloudinary from "../cloudinary/index.cjs"
-import { changeAvailability } from "../public/scripts/menuAvailabilityCustomer.js";
+import { changeAvailability } from "../public/scripts/inproduction/menuAvailabilityCustomer.js";
 
 let check = null;
 
@@ -93,7 +93,6 @@ router.post('/feedback/search', isLoggedIn, asyncWrap(async (req, res) => {
     const result3 = await Feedback.find({ 'email':{ $regex: searchReq, $options: 'i' } })
     const result4 = await Feedback.find({ 'text':{ $regex: searchReq, $options: 'i' } })
     
-    console.log(`result ${result1} !!!!!!!!!!!!`)
     const results = [result1, result2, result3, result4];
     let feedback = []
     for (var i = 0; i < results.length; i++) {

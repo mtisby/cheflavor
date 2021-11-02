@@ -171,7 +171,6 @@ function makeCols(i, calendarRow, counting, startInd, eventDates, month, monthsT
 // call functions needed
 let startInd = startDate(today); // returns the starting date/index for the current month
 const monthsToDisplay = listOfMonths(); // get what months to display
-console.log(monthsToDisplay)
 
 const listOfDates = listDates(monthsToDisplay); // get the dates for the corresponding months
 let bookedDates = getEventDates();
@@ -197,10 +196,7 @@ for (var x = 0; x < monthsToShow; x++) {
     const header = document.createElement('h1');
     
     if (x === yearInd) {
-        console.log(typeof year)
-        year = (parseInt(year) + 1).toString();
-        console.log(typeof year)
-        
+        year = (parseInt(year) + 1).toString();  
     }
         
     header.innerText = `${monthsToDisplay[x]} ${year}`;

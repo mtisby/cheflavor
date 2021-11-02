@@ -5,17 +5,13 @@ let datesObj = {}
 
 // import from events.ejs
 const confirmedEvents = JSON.parse(eventsObj);
-// console.log(confirmedEvents)
 
 for (var n = 0; n < confirmedEvents.length; n++) {
     if (confirmedEvents[n].dateSelected.length > 10 && new Date(confirmedEvents[n].dateSelected).getTime() > new Date().getTime()) {
-        //console.log(typeof confirmedEvents[n].dateSelected)
         let dateString = confirmedEvents[n].dateSelected
         let newdate = stringtoDate(dateString)
         
         datesObj[newdate] = confirmedEvents[n];
-        // console.log(newlist)
-        // console.log('hello', date-today)
     }
 }
 

@@ -7,7 +7,6 @@ let today = new Date();
 
 function stringtoDate(dateString) {
     let arr = dateString.split(' ');
-    console.log(arr)
     let date = new Date(parseInt(arr[2]), months[arr[0]], parseInt(arr[1]));
     return date
 }

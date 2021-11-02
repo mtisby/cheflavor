@@ -14,7 +14,6 @@ if (feedback.length === 0 || feedback === undefined) {
 } else {
     for (var i = 0; i < feedbackToDisplay || i < feedback.length; i++) {
         const currentObj = feedback[i]
-        console.log(currentObj)
     
         const feedbackDiv = document.createElement('div');
         const p1 = document.createElement('p');
