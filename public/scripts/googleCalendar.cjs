@@ -4,7 +4,7 @@ const months = {
 };
 // Require google from googleapis package.
 const { google } = require('googleapis')
-require('dotenv').config({ path: "./.env" })
+require('dotenv').config({ path: "../../.env" })
 
 // Require oAuth2 from our google instance.
 const { OAuth2 } = google.auth
