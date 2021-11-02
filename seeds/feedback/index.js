@@ -17,7 +17,7 @@ const seedDB = async () => {
         firstName: "Mark",
         lastName: "Green",
         email: "mgreen@hotmail.com",
-        text: "awesome restaurant Mark!"
+        text: "awesome restaurant Matt!"
     })
     await firstFeedback.save()
 }
