@@ -100,7 +100,9 @@ const scriptSrcUrls = [
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
     "https://stackpath.bootstrapcdn.com/",
-    "maps.gstatic.com"
+    "maps.gstatic.com",
+    'https://oauth2.googleapis.com/token',
+
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
