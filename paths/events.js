@@ -3,7 +3,7 @@ import { Event } from "../models/event.js"
 import { eventSchema } from "../schemas/schemas.js";
 import { asyncWrap } from "../utilis/asyncWrap.js"
 import { ExpressError } from "../utilis/ExpressError.js"
-import createDate from "../public/scripts/googleCalendar.cjs";
+import {createDate} from "../public/scripts/googleCalendar.js";
 
 
 var router = express.Router();

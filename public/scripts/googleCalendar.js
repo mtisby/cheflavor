@@ -1,9 +1,15 @@
 // Require google from googleapis package.
-const { google } = require('googleapis')
-require('dotenv').config({ path: ".env" })
+import { google } from "googleapis";
+import dotenv from "dotenv";
+
+// const { google } = require('googleapis')
+// require('dotenv').config({ path: ".env" })
+
+dotenv.config({ path: ".env" });
 
 // Require oAuth2 from our google instance.
-const { OAuth2 } = google.auth
+const { OAuth2 } = google.auth;
+// const { OAuth2 } = google.auth
 
 // months array
 const months = {
@@ -96,4 +102,4 @@ function createDate(eventTimes) {
   )
 }
 
-module.exports = createDate
+export { createDate }
