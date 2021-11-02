@@ -19,7 +19,7 @@ const seedDB = async () => {
         firstName: "John",
         lastName: "Smith",
         email: "J Smith",
-        phoneNumber: 9152391220
+        phoneNumber: 9647895612
     })
     await firstEvent.save()
 }

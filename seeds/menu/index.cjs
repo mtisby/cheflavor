@@ -1,8 +1,14 @@
-import mongoose from "mongoose"
-import { Menu } from "../../models/menuitems.js";
-import { menuitems } from "./startingmenu.js"
+// import mongoose from "mongoose"
+// import { Menu } from "../../models/menuitems.js";
+// import { menuitems } from "./startingmenu.js"
 
-mongoose.connect('mongodb://localhost:27017/cheflavor');
+const mongoose = require("mongoose")
+const { Menu } = require("../../models/menuitems.js")
+const { menuitems } = require("./startingmenu.js")
+require('dotenv').config({ path: "../.env" })
+
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cheflavor';
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
