@@ -1,13 +1,15 @@
-const months = {
-  Jan: 0, Feb: 1, Mar: 2, April: 3, May: 4, Jun: 5, Jul: 6, Aug: 7,
- Sep: 8, Oct: 9, Nov: 10, Dec: 11
-};
 // Require google from googleapis package.
 const { google } = require('googleapis')
 require('dotenv').config({ path: "./.env" })
 
 // Require oAuth2 from our google instance.
 const { OAuth2 } = google.auth
+
+// months array
+const months = {
+  Jan: 0, Feb: 1, Mar: 2, April: 3, May: 4, Jun: 5, Jul: 6, Aug: 7,
+ Sep: 8, Oct: 9, Nov: 10, Dec: 11
+};
 
 // Create a new instance of oAuth and set our Client ID & Client Secret.
 let credentials = JSON.parse(process.env.CREDENTIALS);
@@ -29,42 +31,42 @@ function createDate(eventTimes) {
   let month = months[eventTimes.dateSelected.slice(0, 3)]
   let year = eventTimes.dateSelected.slice(7, eventTimes.dateSelected.length)
   let time = parseInt(eventTimes.timeSelected.slice(0,2))
-  
-    //`${day} ${month} ${year} ${time} UTC`
-    //`${day} ${month} ${year} ${time} UTC`
-  let eventDate = new Date(year, month, day, time)
+  let eventStart = new Date(year, month, day, time)
+  let eventEnd = new Date(year, month, day, time+5)
 
-    //.toISOString()
-  let eventTime = new Date(year, month, day, time+5)
-    //.toISOString()
-  // console.log(eventTime)
-  // console.log(typeof eventTime)
-
+  /*
+      ***important note***
+  because this code is not for an actual restaurant, the individual's contact info
+  is not listed under the "attendees" key because it will send an invitation to whatever
+  email is listed. To prevent inviting random people to this mock website, the email is 
+  only listed in the description. In the actual website, the email will be listed 
+  under the "attendees" key so that users can see the reservation they made in their
+  google calendar and receive email updates.
+  */
   var event = {
-    'summary': 'Catering Event',
+    'summary': `Catering Event with ${eventTimes.firstName} ${eventTimes.lastName}`,
     'location': 'TBD',
-    'description': `Catering Event for ${eventTimes.firstName} ${eventTimes.lastName}`,
+    'description': `Catering Event for ${eventTimes.firstName} ${eventTimes.lastName}. Contact info: ${eventTimes.email}`,
     'start': {
-      'dateTime': eventDate,
+      'dateTime': eventStart,
       'timeZone': 'America/Los_Angeles'
     },
     'end': {
-      'dateTime': eventTime,
+      'dateTime': eventEnd,
       'timeZone': 'America/Los_Angeles'
-    },
-    'attendees': [
-      {'email': eventTimes.email},
-    ]
+    }
+    // 'attendees': [
+    //   {'email': eventTimes.email},
+    // ]
   };
 
   calendar.freebusy.query(
     {
       resource: {
-        timeMin: eventDate,
-        timeMax: eventTime,
+        timeMin: eventStart,
+        timeMax: eventEnd,
         timeZone: 'America/Los_Angeles',
         items: [{ id: calendar_id }],
-        // c34tcckonj2ot26j5veg4redhg@group.calendar.google.com
       },
     },
     (err, res) => {

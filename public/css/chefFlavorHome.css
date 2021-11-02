@@ -270,8 +270,8 @@ contact us page
 }
 
 .contactInfo iframe{
-    max-width: 15em;
-    max-height: 10em;
+    width: 20em;
+    max-height: 15em;
 }
 
 .feedbackDiv{
@@ -289,6 +289,7 @@ contact us page
     justify-content: flex-start;
     text-align: center;
     margin: 0 2em;
+    margin-right: 0;
     font-size: 1.25em;
 }
 

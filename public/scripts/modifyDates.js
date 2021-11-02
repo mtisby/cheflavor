@@ -31,4 +31,4 @@ function sortDates(listOfDates) {
     return sorted
 }
  
-export { stringtoDate, sortDates}
+export { stringtoDate, sortDates, months}

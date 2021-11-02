@@ -16,6 +16,9 @@ import passport from 'passport'
 import LocalStrategy from 'passport-local'
 
 import { ExpressError } from "./utilis/ExpressError.js"
+import helmet from "helmet"
+import MongoStore from "connect-mongo"
+import mongoSanitize from "express-mongo-sanitize"
 
 import { events } from "./paths/events.js"
 import { contactus } from "./paths/contactus.js"
@@ -31,7 +34,11 @@ import ejsMate from "ejs-mate"
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-mongoose.connect('mongodb://localhost:27017/cheflavor', {
+const dbUrl = 'mongodb://localhost:27017/cheflavor';
+    //process.env.DB_URL
+    //'mongodb://localhost:27017/cheflavor';
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -54,8 +61,20 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
 app.use(flash());
+app.use(mongoSanitize({
+    replaceWith: "_"
+}))
+
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'yummy'
+    }
+});
 
 const sessionConfig = {
+    store,
     secret: 'oopsmysecret',
     resave: false,
     saveUninitialized: true,
@@ -67,6 +86,60 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 app.use(flash());
+app.use(helmet());
+
+const defaultSrcUrls = []
+
+const scriptSrcUrls = [
+    "https://cdn.jsdelivr.net/",
+    "https://api.tiles.mapbox.com/",
+    "https://api.mapbox.com/",
+    "https://kit.fontawesome.com/",
+    "https://cdnjs.cloudflare.com/",
+    "https://cdn.jsdelivr.net",
+    "https://stackpath.bootstrapcdn.com/",
+    "maps.gstatic.com"
+];
+const styleSrcUrls = [
+    "https://kit-free.fontawesome.com/",
+    "https://cdn.jsdelivr.net/",
+    "https://api.mapbox.com/",
+    "https://api.tiles.mapbox.com/",
+    "https://fonts.googleapis.com/",
+    "https://use.fontawesome.com/",
+];
+
+const fontSrcUrls = ["https://fonts.googleapis.com/"];
+
+const frameSrcUrls = ["https://www.google.com/maps/",
+                        "https://calendar.google.com/calendar/embed?src=c34tcckonj2ot26j5veg4redhg%40group.calendar.google.com&ctz=America%2FLos_Angeles"];
+
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [...defaultSrcUrls],
+            connectSrc: ["'self'"],
+            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                "https://res.cloudinary.com/dr0ofxgkz/", 
+                "https://images.unsplash.com/",
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls],
+            frameSrc: ["'self'", ...frameSrcUrls]
+        },
+        frameguard: {
+            action: 'allow-from',
+            domain: 'https://www.google.com/maps/place/'
+        }
+    })
+);
+
 
 app.use(passport.initialize())
 app.use(passport.session())
