@@ -1,11 +1,6 @@
-// import mongoose from "mongoose"
-// import { Menu } from "../../models/menuitems.js";
-// import { menuitems } from "./startingmenu.js"
-
-const mongoose = require("mongoose")
-const { Menu } = require("../../models/menuitems.js")
-const { menuitems } = require("./startingmenu.js")
-require('dotenv').config({ path: "../.env" })
+import mongoose from "mongoose"
+import { Menu } from "../../models/menuitems.js";
+import { menuitems } from "./startingmenu.js"
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cheflavor';
 mongoose.connect(dbUrl);
