@@ -19,7 +19,8 @@ const router = express.Router()
 
 router.get('/home', isLoggedIn, async (req, res) => {
     const feedback = await Feedback.find({});
-    res.render("staffportal/home.ejs", {feedback})
+    const events = await Event.find({});
+    res.render("staffportal/home.ejs", {feedback, events})
 })
 
 router.get('/menu', isLoggedIn, (req, res) => { 

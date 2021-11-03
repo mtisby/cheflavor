@@ -1,9 +1,16 @@
 <% layout('./layouts/staffBoilerplate')%>
 <main>
     <div class="flexRow">
-        <div class="eventsCalendar" id="eventsCalendar">
-            <iframe src="https://calendar.google.com/calendar/embed?src=c34tcckonj2ot26j5veg4redhg%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <div id="calendarContainer">
+
         </div>
+
+        <dialog id="popUp" class="dialog">
+            <div class="cancel"><button id="cancel">Cancel</button></div>
+            <h1 id="dateSelected"></h1>
+            <p id="description"></p>
+        </dialog>
+        
         <div class="divRight events">
             <h1 class="upcomingEventsh1">Upcoming Events</h1>
             <div class="upcomingEvents" id="upcomingEvents">
@@ -12,7 +19,8 @@
     </div>
 
     <script>
-        var eventsObj = '<%- JSON.stringify(events) %>'; // test is now a valid js object
+        var eventObj = '<%- JSON.stringify(events) %>'; // test is now a valid js object
     </script>
     <script type="module" src="/scripts/events.js"></script>
+    <script type="module" src="/scripts/staffportalCalendar.js"></script>
 </main>

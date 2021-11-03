@@ -4,7 +4,7 @@ let eventsToDisplay = 10;
 let datesObj = {}
 
 // import from events.ejs
-const confirmedEvents = JSON.parse(eventsObj);
+const confirmedEvents = JSON.parse(eventObj);
 
 for (var n = 0; n < confirmedEvents.length; n++) {
     if (confirmedEvents[n].dateSelected.length > 10 && new Date(confirmedEvents[n].dateSelected).getTime() > new Date().getTime()) {

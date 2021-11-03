@@ -4,9 +4,15 @@
         <h1>Welcome!</h1>
     </div>
     <div class="flexRow menuHomeTitle">
-        <div class="eventsCalendar">
-            <iframe src="https://calendar.google.com/calendar/embed?src=c34tcckonj2ot26j5veg4redhg%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <div id="calendarContainer">
+
         </div>
+
+        <dialog id="popUp" class="dialog">
+            <div class="cancel"><button id="cancel">Cancel</button></div>
+            <h1 id="dateSelected"></h1>
+            <p id="description"></p>
+        </dialog>
         
         <div class="feedback" id="feeback">
             <h1>Recent Feedback</h1>
@@ -16,6 +22,8 @@
 
     <script>
         var feedbackObj = '<%- JSON.stringify(feedback) %>'; // test is now a valid js object
+        var eventObj = '<%- JSON.stringify(events) %>';
     </script>
     <script type="module" src="/scripts/feedback.js"></script>
+    <script type="module" src="/scripts/staffportalCalendar.js"></script>
 </main>
