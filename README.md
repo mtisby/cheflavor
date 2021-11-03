@@ -1,4 +1,4 @@
-<h1><img src="./public/images/logo.png" width="45px"> Cheflavor</h1>
+<a href="https://protected-scrubland-89262.herokuapp.com/cheflavor"><h1><img src="./public/images/logo.png" width="45px"> Cheflavor</h1></a>
 
 <p>This project is a web app created for a close friend's restaurant, Cheflavor.
 On the customer user side, the app showcases the restaurants atmosphere, menu, allows for customer feedback, and allows customers to schedule catering for their events. On the staff user side, the app takes all scheduled events and adds them the Cheflavor Google Calendar, displays customer feedback, and allows users to edit the menu.
