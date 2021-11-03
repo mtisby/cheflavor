@@ -48,7 +48,3 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
     <li>passport</li>
 </ul>
 
-<h5>APIs Used</h5>
-<ul>
-    <li>Google Calendar API</li>
-</ul>
