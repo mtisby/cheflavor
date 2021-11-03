@@ -18,6 +18,7 @@ const debugging = true;
 // import from ejs file
 const confirmedEvents = JSON.parse(eventObj);
 
+
 // select div container that will contain all displayed calendars
 const calendarsContainer = document.querySelector('#calendarContainer');
 const popUp = document.querySelector('#popUp');
@@ -110,7 +111,8 @@ function getNumOfRows(listOfDates, x) {
        numOfRows = Math.ceil(listOfDates[x][(listOfDates[x]).length - 1] / 7) + 2;
    }else {
        numOfRows = Math.ceil(listOfDates[x][(listOfDates[x]).length - 1] / 7) + 1;
-   }
+    }
+    
    return numOfRows
 }
 
@@ -260,7 +262,11 @@ for (var x = 0; x < monthsToShow; x++) {
                 calendarCol.appendChild(cellText);
                 calendarRow.appendChild(calendarCol);
             }
-        } else {
+        // } else if (path === ) {
+        //     let indices = makeCols(i, calendarRow, counting, startInd, bookedDates, x, monthsToDisplay);
+        //     startInd = indices[0];
+        //     counting = indices[1];
+        }else {
             let indices = makeCols(i, calendarRow, counting, startInd, bookedDates, x, monthsToDisplay);
             startInd = indices[0];
             counting = indices[1];

@@ -4,6 +4,8 @@ import { eventSchema } from "../schemas/schemas.js";
 import { asyncWrap } from "../utilis/asyncWrap.js"
 import { ExpressError } from "../utilis/ExpressError.js"
 import createDate from "../public/scripts/googleCalendar.cjs";
+import dotenv from "dotenv"
+dotenv.config('../.env')
 
 
 var router = express.Router();
