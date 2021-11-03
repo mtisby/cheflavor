@@ -27,6 +27,10 @@ const eventSchema = new Schema({
         type: String,
         required: true,
         minlength: 10
+    },
+    eventDescription: {
+        type: String,
+        required: false
     }
 })
 

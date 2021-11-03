@@ -17,6 +17,7 @@ for (var n = 0; n < confirmedEvents.length; n++) {
 
 let arrToSort = Object.keys(datesObj)
 let sorted = sortDates(arrToSort)
+console.log(sorted)
 
 // select div container that will contain all displayed events
 const eventsContainer = document.querySelector('#upcomingEvents');

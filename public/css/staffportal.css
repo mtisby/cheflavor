@@ -37,6 +37,10 @@
 
 
 /* feedback */
+.feedbackPageTitle{
+    margin-top: 2em;
+}
+
 .customerInfo{
     font-size: .75em;
     font-weight: bold;

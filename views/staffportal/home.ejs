@@ -10,8 +10,50 @@
 
         <dialog id="popUp" class="dialog">
             <div class="cancel"><button id="cancel">Cancel</button></div>
-            <h1 id="dateSelected"></h1>
-            <p id="description"></p>
+            <form action="" class="form">
+                <input type="text" id="eventId" name="eventId" hidden>
+                <div class="formDiv">
+                    <p><input type="text" name="dateSelected" id="dateSelected" class="form-control"></p>
+                    <!-- change this h1 to an input and autochange value -->
+                    <div>
+                        <label for="selectTime" class="form-label required">Please Select a Time</label>
+                        <select name="timeSelected" id="timeSelected" class="form-select">
+                            <option value="10:00">10am</option>
+                            <option value="11:00">11am</option>
+                            <option value="12:00">12pm</option>
+                            <option value="13:00">1pm</option>
+                            <option value="14:00">2pm</option>
+                            <option value="15:00">3pm</option>
+                            <option value="16:00">4pm</option>
+                            <option value="17:00">5pm</option>
+                            <option value="18:00">6pm</option>
+                            <option value="19:00">7pm</option>
+                            <option value="20:00">8pm</option>
+                        </select>
+                    </div>
+                    <div class="contactInfo">
+                        <h2>contact info</h2>
+                        <div class="eventName input-group has-validation">
+                            <div><label for="firstName" class="form-label">First Name</label>
+                            <br><input type="text" placeholder="ex. Matt" id="firstName" name="firstName" class="form-control" required></div>
+                            <div><label for="lastName" class="form-label">Last Name</label>
+                            <br><input type="text" placeholder="ex. Green" id="lastName" name="lastName" class="form-control" required></div>
+                        </div>
+                        <div class="emailAndPhone">
+                            <div><label for="email" class="form-label">Email</label>
+                            <input type="text" id="email" name="email" class="form-control" required></div>
+                            <br>
+                            <div><label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" minlength="10" class="form-control" required></div>
+                        </div>
+                    </div>
+
+                    <div class="eventDescription">
+                        <label for="eventDescription">Add a Description</label> <br>
+                        <textarea name="eventDescription" id="eventDescription" cols="60" rows="10"></textarea>
+                    </div>
+                </div>
+            </form>
         </dialog>
         
         <div class="feedback" id="feeback">

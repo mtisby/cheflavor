@@ -116,29 +116,42 @@ function getNumOfRows(listOfDates, x) {
    return numOfRows
 }
 
-function checkEventDates(eventDates, month, cellTextDate, calendarCol, monthsToDisplay) {
+function checkEventDates(eventDates, month, cellTextDate, calendarCol, monthsToDisplay, div) {
     for (var theDay of eventDates) {
         if (theDay.dateSelected.slice(0, 3) === monthsToDisplay[month] && parseInt(theDay.dateSelected.slice(4, 6)) === cellTextDate) {
             //calendarCol.classList.add('beforeToday');
-            const cellText = document.createTextNode(`
-            event with ${theDay.firstName} ${theDay.lastName}`);
+            div.classList.add('eventDate')
+            const br = document.createElement('br')
+            const cellText = document.createTextNode(`Event with ${theDay.firstName} ${theDay.lastName}`);
+            calendarCol.appendChild(br);
             calendarCol.appendChild(cellText);
         }
         
     }
 }
 
+function getEventInfo(eventDate) {
+    for (var i = 0; i < confirmedEvents.length; i++) {
+        if (eventDate === confirmedEvents[i].dateSelected) {
+            return(confirmedEvents[i]) 
+        }
+    }
+}
+
+
 function makeCols(i, calendarRow, counting, startInd, eventDates, month, monthsToDisplay) {
    var newInd = 0
    for (var j = 0; j < 7; j++) {
        const calendarCol = document.createElement('td');
-       calendarCol.classList.add('textCenter', 'cellDesign');
+       calendarCol.classList.add('textCenter');
 
        if (i === 1 && j < startInd) {
            //
        } else if ((i === 1 && j >= startInd) || (i > 1 && (counting < listOfDates[x][listOfDates[x].length - 1]))) {
+           const div = document.createElement('div');
            const cellText = document.createTextNode(listOfDates[x][counting]);
-           calendarCol.appendChild(cellText);
+           div.appendChild(cellText);
+           calendarCol.appendChild(div);
 
            if (listOfDates[x][counting] === parseInt(today.slice(8, 10)) && monthsToDisplay[x] === today.slice(4, 7)) {
                calendarCol.classList.add('today');
@@ -148,7 +161,7 @@ function makeCols(i, calendarRow, counting, startInd, eventDates, month, monthsT
                calendarCol.classList.add('dates');
            }
             const cellTextDate = listOfDates[x][counting]
-            checkEventDates(eventDates, month, cellTextDate, calendarCol, monthsToDisplay)
+            checkEventDates(eventDates, month, cellTextDate, calendarCol, monthsToDisplay, div)
 
 
            counting++
@@ -178,7 +191,7 @@ let startInd = startDate(today); // returns the starting date/index for the curr
 const monthsToDisplay = listOfMonths(); // get what months to display
 
 const listOfDates = listDates(monthsToDisplay); // get the dates for the corresponding months
-let bookedDates = getEventDates();
+let bookedDates = getEventInfo();
 // global variable for holding a new starting index for iterations greater than 0
 let newStartInd = 0;
 let yearInd = 0
@@ -210,7 +223,6 @@ for (var x = 0; x < monthsToShow; x++) {
     buttonRight.innerHTML = ">"
     buttonRight.id = "buttonRight"
     const calendarTable = document.createElement('table');
-    calendarTable.classList.add('textCenter');
     header.classList.add('textCenter', 'calendarHeading', 'month');
     headerDiv.classList.add('headerDiv');
     
@@ -239,11 +251,35 @@ for (var x = 0; x < monthsToShow; x++) {
         const value = e.srcElement.innerText;
         const popUpHeader = document.querySelector('#dateSelected');
         popUpHeader.classList.add('textCenter');
-        const popUpDescription = document.querySelector('#description');
+        const popUpTime = document.querySelector('#timeSelected');
+        
+        const popUpNameFirst = document.querySelector('#firstName');
+        const popUpNameLast = document.querySelector('#lastName');
+        const popUpEmail = document.querySelector('#email');
+        const popUpPhoneNum = document.querySelector('#phoneNumber');
+        const popUpEventId = document.querySelector('#eventId');
+        const popUpDescrip = document.querySelector('#eventDescription')
+        
+        // console.log(value)
+
         const monthValue = e.path[4].querySelector('h1').innerText;
 
-        popUpHeader.innerHTML = `${monthValue.slice(0,3)} ${value.slice(0,2)}, ${monthValue.slice(4)}`;
-        popUpDescription.innerHTML = `Event with ${value.slice(3,)}`
+        const eventDate = `${monthValue.slice(0,3)} ${value.slice(0,2)}, ${monthValue.slice(4)}`
+        let eventInfo = getEventInfo(eventDate)
+
+        popUpTime.value = eventInfo.timeSelected
+        popUpNameFirst.value = eventInfo.firstName
+        popUpNameLast.value = eventInfo.lastName
+        popUpEmail.value = eventInfo.email
+        popUpPhoneNum.value = eventInfo.phoneNumber
+        popUpHeader.value = eventDate;
+        popUpEventId.value = eventInfo._id
+
+        console.log(eventInfo)
+        if (eventInfo.eventDescription != undefined) {
+            popUpDescrip.value = eventInfo.eventDescription
+        }
+
         if (typeof popUp.showModal === "function") {
             popUp.showModal();
         } else {
@@ -262,7 +298,7 @@ for (var x = 0; x < monthsToShow; x++) {
         if (i === 0) {
             for (var j = 0; j < 7; j++) {
                 const calendarCol = document.createElement('td');
-                calendarCol.classList.add('textCenter', 'cellDesign', 'tableHead');
+                calendarCol.classList.add('textCenter', 'tableHead');
                 const cellText = document.createTextNode(daysOfWeek[j][1]);
                 calendarCol.appendChild(cellText);
                 calendarRow.appendChild(calendarCol);

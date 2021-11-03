@@ -1,0 +1,263 @@
+html{
+    --lightGrey: #a3a3a3;
+    --todayColor: #29819094;
+    --hoverColor: #2e8da5;
+    --monthTitleColor: #2e75a5;
+    --eventColor: #9e60a7;
+    --fontOne: 'Heebo', sans-serif;
+    --fontTwo: 'Noto Sans HK', sans-serif;
+    --fontThree: 'Poppins', sans-serif;
+    --fontFour: 'Source Sans Pro', sans-serif;
+    --fontFive: 'Titillium Web', sans-serif;
+    --fontSix: 'Ubuntu', sans-serif;
+
+    font-family: var(--fontOne);
+}
+
+
+.textLeft{
+    text-align: left;
+    vertical-align: top;
+}
+
+.textCenter{
+    text-align: center;
+    vertical-align: top;
+}
+
+.tableHead{
+    padding: .5em;
+    color: var(--hoverColor);
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.flexboxCalendar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.calendarHeading{
+    padding: 0;
+    padding-top: .5em;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.eventDate{
+    background-color: var(--eventColor);
+    color: white;
+    font-weight: bold;
+}
+
+.today{
+    background-color: var(--todayColor);
+    /* border: 0px solid var(--todayColor);
+    border-radius: 50%; */
+}
+
+.beforeToday {
+    color: var(--lightGrey);
+}
+
+.calendarDiv{
+    border: .01px solid rgba(0, 0, 0, 0.05);
+    border-radius: 2.5em;
+    margin: 2.5em;
+    padding-bottom: .51em;
+}
+
+.dates{
+    font-weight: none;
+}
+
+.events{
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2em auto;
+    margin-bottom: 8em;
+}
+
+.month{
+    color: var(--monthTitleColor);
+    font-family: var(--fontThree);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+table{
+    min-width: 33em;
+    max-width: 37em;
+
+    min-height: 25em;
+    max-height: 34em;
+}
+
+td{
+    min-width: 5em;
+    max-width: 5.7em;
+}
+
+/*pop up*/
+.dialog{
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 1em;
+    padding: 2em;
+
+    font-family: var(--fontThree);
+    margin: auto;
+}
+
+.dialog label{
+    font-size: 1.25em;
+    padding-right: .5em;
+    margin-left: 2.85em;
+}
+
+.dialog button{
+    margin: .25em 1em;
+    margin-top: 1.75em;
+
+    background-color: var(--todayColor);
+    border: 0px solid var(--todayColor);
+    border-radius: 2.5em;
+    width: 8em;
+    padding: .5em;
+}
+
+.dialog p input
+{
+    border: none;
+    display: inline;
+    font-family: inherit;
+    font-size: inherit;
+    padding: none;
+    width: auto;
+    font-size: 3em;
+    color: var(--monthTitleColor);
+}
+
+.formDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eventDescription{
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.eventDescription textarea{
+    border: 1px solid black;
+}
+
+.eventDescription label{
+    margin: 0;
+}
+
+.cancel{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactInfo h2{
+    margin: 1em;
+    margin-bottom: .25em;
+}
+
+.contactInfo label{
+    margin: 0;
+}
+
+.emailAndPhone{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5em;
+}
+
+.eventName{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: space-between;
+}
+
+/* interaction */
+/*calendar*/
+.dates:hover{
+    color: var(--hoverColor);
+    font-weight: bold;
+    background-color: rgba(61, 61, 61, 0.10);
+    /* border: 0px solid rgba(61, 61, 61, 0.10);
+    border-radius: 50%; */
+}
+
+.calendarDiv:hover{
+    box-shadow: 0 0 25px rgba(128, 128, 128, 0.5);
+}
+
+.header{
+    text-align: center;
+    font-size: 3em;
+    font-family: var(--fontThree);
+    color: var(--headerColor);
+
+    margin-bottom: 0;
+    padding-top: 1em ;
+}
+
+.headerDiv{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.headerDiv button{
+    margin-top: 1.5em;
+}
+
+.headerDivFirst{
+    display: flex;
+    justify-content: center;
+}
+
+.hide{
+    display: none;
+}
+
+.visualhide{
+    opacity: 0;
+}
+
+.buttonRight{
+    background-color: rgba(0, 0, 0, 0.0);
+    color: gray;
+    border: .25px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
+
+.buttonLeft{
+    background-color: rgba(0, 0, 0, 0.0);
+    color: gray;
+    border: .25px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}

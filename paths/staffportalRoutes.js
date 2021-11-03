@@ -82,6 +82,14 @@ router.get('/events', isLoggedIn, asyncWrap (async(req, res) => {
     res.render("staffportal/events.ejs", {events})
 }))
 
+router.post('/events', isLoggedIn, asyncWrap(async (req, res) => {
+    const id = req.body.eventId
+    console.log(id)
+    const event = await Event.findByIdAndUpdate(id, {...req.body});
+    // const event = await Event.findByIdAndUpdate(id);
+    res.redirect(`/cheflavor/staffportal/home`)
+}))
+
 router.get('/feedback', isLoggedIn, asyncWrap(async (req, res) => {
     const feedback = await Feedback.find({});
     res.render("staffportal/feedback.ejs", {feedback})

@@ -12,6 +12,7 @@ function stringtoDate(dateString) {
 }
 
 function sortDates(listOfDates) {
+    console.log(listOfDates)
     let sorted = []
     for (var i = 0; i < listOfDates.length; i++) {
         let min = new Date(listOfDates[0]).getTime();
@@ -25,6 +26,10 @@ function sortDates(listOfDates) {
         
         listOfDates.splice(listOfDates.indexOf(track), 1)
         sorted.push(track)
+
+        if (listOfDates.length < 10 && i === listOfDates.length - 1) {
+            sorted.push(listOfDates[listOfDates.length - 1])
+        }
     }
 
     return sorted
