@@ -4,12 +4,15 @@ html{
 
 body{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
 main{
     width: 40vw;
     margin: 5em;
+    margin-top: 0;
     padding: 3em;
     border: 2px solid var(--gray);
     border-radius: 9%;
@@ -34,3 +37,7 @@ main{
     margin-top: 2em;
 }
 
+.hint{
+    margin-top: 3em;
+    font-weight: bold;
+}
