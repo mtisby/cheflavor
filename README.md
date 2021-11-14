@@ -1,4 +1,4 @@
-<h1><img src="./public/images/logo.png" width="45px"> Cheflavor</h1>
+<a href="https://protected-scrubland-89262.herokuapp.com/cheflavor"><h1><img src="./public/images/logo.png" width="45px"> Cheflavor</h1></a>
 
 <p>This project is a web app created for a close friend's restaurant, Cheflavor.
 On the customer user side, the app showcases the restaurants atmosphere, menu, allows for customer feedback, and allows customers to schedule catering for their events. On the staff user side, the app takes all scheduled events and adds them the Cheflavor Google Calendar, displays customer feedback, and allows users to edit the menu.
@@ -9,7 +9,9 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
     
  Check out the fully deployed customer view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
 
-<b>!!!Important!!!</b> to view the staffportal, please login with the user: 123 and pass: 123; If you are using chrome, this prevents the user and pass from being autosaved to your device.
+<b>!!!Important!!!</b> 
+    
+  To view the staffportal, please login with the user: 123 and pass: 123; If you are using chrome, this prevents the user and pass from being autosaved to your device.
 
  Check out the fully deployed staff view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor/stafflogin/login">here</a>
 </p>
@@ -46,7 +48,3 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
     <li>passport</li>
 </ul>
 
-<h5>APIs Used</h5>
-<ul>
-    <li>Google Calendar API</li>
-</ul>
