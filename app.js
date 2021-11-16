@@ -161,7 +161,7 @@ app.use((req, res, next) => {
 
 //********************//
 //** customer paths **//
-//********************//npm
+//********************//
 app.get('/cheflavor', (req, res) => {
     res.render('./index.ejs', { __dirname })
 })
