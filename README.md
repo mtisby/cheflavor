@@ -15,8 +15,8 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
 Check out the fully deployed staff view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor/stafflogin/login">here</a>
 </p>
 
-<h2>Tools Used</h2>
 
+## Tools Used
 <h5>Languages Used</h5>
 <ul>
     <li>JavaScript</li>
