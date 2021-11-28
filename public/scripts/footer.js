@@ -23,7 +23,7 @@ const footerSections = {
         elements: {
             h1: "Social Media",
             a1:{
-                href: "https://www.facebook.com/Tastecheflavor/",
+                href: "https://www.instagram.com/cheflavor/?hl=en",
                 text: "Instagram"
             },
             a2:{

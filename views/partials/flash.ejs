@@ -1,0 +1,17 @@
+<link href="/stylesheets/flash.css" rel="stylesheet">
+
+<% if(success && success.length) {%>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="flash">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<% if(error && error.length) {%>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="flash">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </button>
+    </div>
+<% } %>
+
