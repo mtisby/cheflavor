@@ -11,7 +11,7 @@ like the menu, event schedule, and customer feedback is stored in a MongoDB data
  Check out the fully deployed customer view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor">here</a>
 
 ## Staff View 
-<img src="./public/images/cheflavor-staffportal_ijllwa.gif" width="500px">
+<img src="./public/images/cheflavor-staffportal_ijllwa.gif" width="300px">
 Check out the fully deployed staff view web app <a href="https://protected-scrubland-89262.herokuapp.com/cheflavor/stafflogin/login">here</a>
 </p>
 
