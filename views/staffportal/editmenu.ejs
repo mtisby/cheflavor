@@ -18,36 +18,37 @@
                                         <input type="text" name="availabilityId" id="availabilityId" value="available" hidden>
                                         <button id="toggleAvailability" type="submit">Temporarily Unavailable</button>
                                     </form> -->
-                                    <form action="/cheflavor/staffportal/menu/edit/<%=item.id%>?_method=DELETE" method="POST">
-                                        <input type="text" name="itemId" id="itemId" value="<%=item.id%>" hidden>
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form> 
+                                    <div class="deleteBtnContainer">
+                                        <form action="/cheflavor/staffportal/menu/edit/<%=item.id%>?_method=DELETE" method="POST">
+                                            <input type="text" name="itemId" id="itemId" value="<%=item.id%>" hidden>
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
                                     <form action="/cheflavor/staffportal/menu/edit/?_method=PUT" method="POST" enctype="multipart/form-data">
-                                        <% if (item.img != '') {%>
-                                            <img src=<%= item.img %> class="squarePicture availabile" id="menuImg">
-                                            <div class="form-check-inline">
-                                                <input type="checkbox" id="itemImage" name="deleteImages[]" value="<%=item.img%>">
+                                        <div class="editmenuform">
+                                            <% if (item.img != '') {%>
+                                                <img src=<%= item.img %> class="squarePicture availabile" id="menuImg">
+                                                <div class="form-check-inline">
+                                                    <input type="checkbox" id="itemImage" name="deleteImages[]" value="<%=item.img%>">
+                                                </div>
+                                                <label for="itemImage">Delete Image</label>
+                                                <p>or add a new image</p>
+                                            <% }%>
+                                            <div class="form-file custom-file center">
+                                                <input type="file" class="form-file-input" id="image" name="image">
                                             </div>
-                                            <label for="itemImage">Delete Image</label>
-                                        <% }%>
-                                        <div class="form-file custom-file">
-                                            <input type="file" class="form-file-input" id="image" name="image">
-                                            <label class="form-file-label" for="image">
-                                                <span class="form-file-text custom-file-label">Add Another Image</span>
-                                                <span class="form-file-button">Browse</span>
-                                            </label>
+                                            <br><br>
+                                            <input class="menuItemTitle" type="text" name="title" id="title" value="<%= item.title %>" required></input>
+                                            <br><br>
+                                            <textarea class="description" type="text" name="description" id="description" cols="36" required><%= item.description %></textarea>
+                                            <br><br>
+                                            <input class="price" type="text" name="price" id="price" value="<%= item.price %>" required></input>
+                                            <input class="id" type="text"  name="id" id="itemId" value="<%= item.id %>" hidden required></input>
+                                            
+                                            <br>
+                                            
+                                            <button type="submit" class="btn btn-success editmenuSubmitBtn">Submit</button>
                                         </div>
-
-                                        <input class="menuItemTitle" type="text" name="title" id="menu[title]" value="<%= item.title %>" required></input>
-
-                                        <textarea class="description" type="text" name="description" id="menu[description]" required><%= item.description %></textarea>
-                                        
-                                        <input class="price" type="text" name="price" id="menu[price]" value="<%= item.price %>" required></input>
-                                        
-                                        <input class="id" type="text"  name="id" id="itemId" value="<%= item.id %>" hidden required></input>
-                                        
-                                        
-                                        <button type="submit">Submit</button>
                                     </form>
                                 </div>
                             <%}%>

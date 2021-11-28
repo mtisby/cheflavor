@@ -34,9 +34,8 @@ router.get('/menu/edit', isLoggedIn, async (req, res) => {
 
 router.put('/menu/edit/', isLoggedIn, upload.single('image'), async (req, res) => {
     const id = req.body.id
-    const menu = await Menu.findByIdAndUpdate(id, { ...req.body.menu });
-    const newImg = req.file.path
-    menu.img = newImg
+    const menu = await Menu.findByIdAndUpdate(id, { ...req.body });
+    if(req.file != undefined){menu.img = req.file.path}
     await menu.save();
     if (req.body.deleteImages) {
         for (let filename of req.body.deleteImages) {

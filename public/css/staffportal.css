@@ -1,4 +1,9 @@
 
+html{
+    --grey: #E5E5E5;
+}
+
+
 .flexCol{
     display: flex;
     flex-direction: column;
@@ -115,6 +120,58 @@
 
 .menuHomeTitle h1{
     font-weight: bold;
+}
+
+/* add menu page */
+.addmenupg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+}
+
+.addmenucontainer{
+    width: 35vw;
+    border: 1px solid rgba(128, 128, 128, 0.246);
+    border-radius:  2.5em;
+
+    background-color: var(--grey);
+    padding: 2em;
+}
+
+.addmenucontainer input{
+    margin: 0;
+}
+
+.addmenucontainer textarea{
+    margin: 0;
+}
+
+.addmenuform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#addmenusubmit{
+    width: 6em;
+}
+
+/* edit menu page */
+
+.deleteBtnContainer{
+    width: 95%;
+    margin: .25em 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items:flex-end;
+}
+
+.editmenuSubmitBtn{
+    margin-bottom: 1em;
 }
 
 /* interactive */

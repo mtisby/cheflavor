@@ -42,6 +42,7 @@ router.post('/login', passport.authenticate('local', { failureFlash: true, failu
     // delete req.session.returnTo;
     // res.redirect(redirectUrl)
     try {
+        req.flash('success', 'Welcome to Cheflavor\'s Staff Portal')
         res.redirect('/cheflavor/staffportal/home')
     } catch (e) {
         console.log(e)

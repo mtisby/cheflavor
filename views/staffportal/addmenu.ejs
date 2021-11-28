@@ -1,38 +1,40 @@
 <% layout('./layouts/staffBoilerplate')%>
-<div class="">
-    <form action="/cheflavor/staffportal/menu/add/?_method=PUT" method="POST" enctype="multipart/form-data">
-        <div class="form-file custom-file">
-            <input type="file" class="form-file-input" id="image" name="image">
-            <label class="form-file-label" for="image">
-                <span class="form-file-text custom-file-label">Add An Image</span>
-                <span class="form-file-button">Browse</span>
-            </label>
-        </div>
+<div class="addmenupg">
+    <h3>Add A Menu Item</h3>
+    <div class="addmenucontainer">
+        <form action="/cheflavor/staffportal/menu/add/?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="addmenuform row g-3">
+                <div class="form-file custom-file">
+                    <input type="file" class="form-file-input" id="image" name="image">
+                </div>
+                <div class="row g-3">
+                    <label for="menu[title]" class="form-label">Please Add a Title</label>
+                    <input class="menuItemTitle" class="form-control" type="text" name="title" id="menu[title]" placeholder="Steak Salad" required></input>
+                </div>
+                <div class="row g-3">
+                    <label for="menu[description]" class="form-label">Please Add a Description</label>
+                    <textarea class="description" class="form-control" type="text" name="description" id="menu[description]"></textarea>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <label for="menu[price]" class="form-label">Please Add a Price</label>
+                        <br>
+                        <input class="form-control price" type="number" min="1" step=".5" name="price" id="menu[price]" required></input>
+                    </div>
 
-        <div>
-            <label for="menu[title]" class="form-label">Please Add a Title</label>
-            <input class="menuItemTitle" class="form-control" type="text" name="title" id="menu[title]" placeholder="Steak Salad" required></input>
-        </div>
-
-        <div>
-            <label for="menu[description]" class="form-label">Please Add a Description</label>
-            <textarea class="description" class="form-control" type="text" name="description" id="menu[description]"></textarea>
-        </div>
-        
-        <div>
-            <label for="menu[price]" class="form-label">Please Add a Price</label>
-            <input class="price" class="form-control" type="number" min="1" step=".5" name="price" id="menu[price]" required></input>
-        </div>
-        
-        <label for="category" class="form-label">Please Select a Category</label>
-        <select name="category" id="category" class="form-select" required>
-            <option value="salads">salads</option>
-            <option value="flatbreads">flatbreads</option>
-            <option value="appetizers">appetizers</option>
-            <option value="sandwiches">sandwiches</option>
-            <option value="burgers">burgers</option>
-        </select>
-        
-        <button type="submit">Submit</button>
-    </form>
+                    <div class="col">
+                        <label for="category" class="form-label">Please Select a Category</label>
+                        <select name="category" id="category" class="form-select" required>
+                            <option value="salads">salads</option>
+                            <option value="flatbreads">flatbreads</option>
+                            <option value="appetizers">appetizers</option>
+                            <option value="sandwiches">sandwiches</option>
+                            <option value="burgers">burgers</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="addmenusubmit" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
