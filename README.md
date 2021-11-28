@@ -3,6 +3,7 @@
 <p>This project is a web app created for a close friend's restaurant, Cheflavor.
 On the customer user side, the app showcases the restaurants atmosphere, menu, allows for customer feedback, and allows customers to schedule catering for their events. On the staff user side, the app takes all scheduled events and adds them the Cheflavor Google Calendar, displays customer feedback, and allows users to edit the menu.
 
+<img src="./public/images/cheflavor_banyqt.gif">
 
 This web app was created using the JavaScript framework Express. The restaurants data
 like the menu, event schedule, and customer feedback is stored in a MongoDB database.
